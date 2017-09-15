@@ -94,7 +94,7 @@ $ curl https://graphql.shoppo.com/api/wise/health_check -H "access_token: random
 }
 ```
 
-#### InvalidRelayID
+#### InvalidRelayID or (ObjectNotFoundError)
 
 The request is attempting to retrieve an object that doesn't exist.
 
@@ -115,7 +115,7 @@ $ curl https://graphql.shoppo.com/api/wise/merchant/some_id -H "access_token: <a
 }
 ```
 
-#### InvalidRelayID
+#### InvalidWiseMerchant
 
 The requested merchant is missing required information.
 
@@ -130,7 +130,7 @@ $ curl https://graphql.shoppo.com/api/wise/merchant/dVLgKzgew24Cx -H "access_tok
     {
       "display_to_user": false,
       "message": "The merchant has not provided warehouse address",
-      "type": "InvalidRelayID"
+      "type": "InvalidWiseMerchant"
     }
   ]
 }
