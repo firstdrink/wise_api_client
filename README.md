@@ -9,7 +9,7 @@ Shoppo production API serves at https://graphql.shoppo.com/. Please note that on
 Test your access token with 
 
 ```bash
-$ curl -s https://graphql.shoppo.com/api/wise/health_check -H "access_token: <Your access token>"
+$ curl -s https://graphql.shoppo.com/api/wise/health_check -H "accesstoken: <Your access token>"
 ```
 
 With a valid access token, you will receive a response with status code 200 like 
@@ -40,7 +40,7 @@ Retrieve merchant information by id
 
 Sample request: 
 ```bash
-$ curl -s https://graphql.shoppo.com/api/wise/merchant/dVLgKzgew24Cx -H "access_token: <Your access token>"
+$ curl -s https://graphql.shoppo.com/api/wise/merchant/dVLgKzgew24Cx -H "accesstoken: <Your access token>"
 ```
 
 Sample response:
@@ -82,7 +82,7 @@ Status code: 403
 Sample:
 
 ```bash
-$ curl https://graphql.shoppo.com/api/wise/health_check -H "access_token: random_code"
+$ curl https://graphql.shoppo.com/api/wise/health_check -H "accesstoken: random_code"
 {
   "errors": [
     {
@@ -103,7 +103,7 @@ Status code: 404
 Sample:
 
 ```bash
-$ curl https://graphql.shoppo.com/api/wise/merchant/some_id -H "access_token: <access_token>"
+$ curl https://graphql.shoppo.com/api/wise/merchant/some_id -H "accesstoken: <access_token>"
 {
   "errors": [
     {
@@ -124,7 +124,7 @@ Status code: 400
 Sample:
 
 ```bash
-$ curl https://graphql.shoppo.com/api/wise/merchant/dVLgKzgew24Cx -H "access_token: <access_token>"
+$ curl https://graphql.shoppo.com/api/wise/merchant/dVLgKzgew24Cx -H "accesstoken: <access_token>"
 {
   "errors": [
     {
