@@ -345,7 +345,8 @@
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"stamp_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://cdn.shoppo.com/ temporary_uploaded_files/2d80da072a3e4ea5888f4a4d24549798.pdf"</span><span class="w">
+        </span><span class="s2">"stamp_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://cdn.shoppo.com/ temporary_uploaded_files/2d80da072a3e4ea5888f4a4d24549798.pdf"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tracking_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xap36y3p85Oio0"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='8ce1a08783'>返回参数说明:</h3>
@@ -372,6 +373,13 @@
 <td>是</td>
 <td>面单链接</td>
 </tr>
+<tr>
+<td></td>
+<td>tracking_number</td>
+<td>string</td>
+<td>是</td>
+<td>合单物流单号</td>
+</tr>
 </tbody></table>
 <h2 id='f21caf117f'>推送物流轨迹</h2><h3 id='api-wise-logistics-checkpoints'><code>/api/wise/logistics/checkpoints</code></h3>
 <ul>
@@ -383,7 +391,7 @@
 <p>curl请求</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>
-<span class="nv">$ </span>curl https://graphql-dev.shoppo.com/api/wise/logistics/stamp <span class="nt">-H</span> <span class="s2">"Content-Type:application/json"</span> <span class="nt">-H</span> <span class="s2">"accesstoken: &lt;Your access token&gt;"</span> <span class="nt">-X</span> POST <span class="nt">--data</span> <span class="s1">'{"tracking_number":"xap36y3p85Oio0","checkpoints":[{"courier":"wise-express","location":"Shanghai","message":"Waybill Generated","time":1539178398},{"courier":"wise-express","location":"Thailand","message":"OK","time":1539179398}]}'</span>
+<span class="nv">$ </span>curl https://graphql-dev.shoppo.com/api/wise/logistics/stamp <span class="nt">-H</span> <span class="s2">"Content-Type:application/json"</span> <span class="nt">-H</span> <span class="s2">"accesstoken: &lt;Your access token&gt;"</span> <span class="nt">-X</span> POST <span class="nt">--data</span> <span class="s1">'{"tracking_number":"xap36y3p85Oio0","checkpoints":[{"courier":"wise-express","location":"Shanghai","status_code": 1,"time":1539178398},{"courier":"wise-express","location":"Thailand", "status_code": 2, "time":1539179398}]}'</span>
 
 </code></pre></div><h3 id='json-2'>json请求参数说明:</h3>
 <table><thead>
@@ -395,6 +403,13 @@
 <th>描述</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>type</td>
+<td></td>
+<td>int</td>
+<td>是</td>
+<td>类型 1: 小件, 2: 合单</td>
+</tr>
 <tr>
 <td>tracking_number</td>
 <td></td>
@@ -425,10 +440,10 @@
 </tr>
 <tr>
 <td></td>
-<td>message</td>
-<td>string</td>
+<td>status_code</td>
+<td>int</td>
 <td>否</td>
-<td>信息</td>
+<td>状态码 1: 小件揽收, 2: 小件入仓, 3: 合单出仓</td>
 </tr>
 <tr>
 <td></td>
