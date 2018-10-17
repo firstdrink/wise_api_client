@@ -67,7 +67,7 @@ data | | object | 是 |
 
 ```shell
 
-$ curl https://graphql-dev.shoppo.com/api/wise/logistics/stamp -H "Content-Type:application/json" -H "accesstoken: <Your access token>" -X POST --data '{"tracking_number":"xap36y3p85Oio0","checkpoints":[{"courier":"wise-express","status_number":1,"status_desc":"\u5c0f\u4ef6\u63fd\u6536","date":"2016-08-22 00:00:00"},{"courier":"wise-express","status_number":2,"status_desc":"\u5c0f\u4ef6\u5165\u4ed3","date":"2016-08-23 00:00:00"}]}'
+$ curl https://graphql-dev.shoppo.com/api/wise/logistics/stamp -H "Content-Type:application/json" -H "accesstoken: <Your access token>" -X POST --data '{"tracking_number":"xap36y3p85Oio0","checkpoints":[{"date":"2016-08-22 00:00:00","status_desc":"小件揽收","courier":"wise-express","status_number":1},{"date":"2016-08-23 00:00:00","status_desc":"小件入仓","courier":"wise-express","status_number":2}]}'
 
 ```
 
