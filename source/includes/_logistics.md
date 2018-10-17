@@ -18,17 +18,18 @@
 > curl请求
 
 ```shell
-$ curl https://graphql-dev.shoppo.com/api/wise/logistics/stamp -H "Content-Type:application/json" -H "accesstoken: <Your access token>" -X POST --data '{"order_items":[{"tracking_number":"l4kbkMvDQQ0Sql","weight":2.2},{"tracking_number":"xkq8qMDR66ktA3","weight":1.1}],"tracking_number":"xap36y3p85Oio0"}'
+$ curl https://graphql-dev.shoppo.com/api/wise/logistics/stamp -H "Content-Type:application/json" -H "accesstoken: <Your access token>" -X POST --data '{"order_items":[{"tracking_number":"l4kbkMvDQQ0Sql","weight":2.2},{"tracking_number":"xkq8qMDR66ktA3","weight":1.1}],"order_id":"xap36y3p85Oio0"}'
 ```
 
 ### json请求参数说明:
 
 名称 | 二级名称 | 类型 | 必填 | 描述
 --- | ---- | --- | --- | ---
-tracking_bumber | | string | 是 | 主物流单号
+order_id | | string | 是 | 订单ID
 order_items | | array | 是 | 订单项列表
-            | tracking_nbumber | string | 是 | 包裹面单号 |
-            | weight           | float  | 是 | 重量(Kg)   |
+            | tracking_number | string | 是 | 包裹面单号 |
+            | weight          | float  | 是 | 重量(Kg)   |
+
 
 
 > json结果
@@ -39,7 +40,8 @@ order_items | | array | 是 | 订单项列表
 {
 	"data": {
 		"stamp_url": "http://cdn.shoppo.com/ temporary_uploaded_files/2d80da072a3e4ea5888f4a4d24549798.pdf",
-        "tracking_number": "xap36y3p85Oio0"
+        "tracking_number": "UG979450065CN",
+        "order_id": "xap36y3p85Oio0"
 	}
 }
 ```
@@ -51,10 +53,9 @@ order_items | | array | 是 | 订单项列表
 名称 | 二级名称 | 类型 | 必填 | 描述
 --- | --- | --- | --- | ---
 data | | object | 是 | 
-     | stamp_url | string | 是 | 面单链接 |
-     | tracking_number |   string |  是 |   合单物流单号 |
-
-
+     | stamp_url       | string | 是 | 面单链接     |
+     | tracking_number | string | 是 | 合单物流单号 |
+     | order_id        | string | 是 | 订单ID       |
 ## 推送物流轨迹
 
 ### `/api/wise/logistics/checkpoints`
@@ -66,7 +67,7 @@ data | | object | 是 |
 
 ```shell
 
-$ curl https://graphql-dev.shoppo.com/api/wise/logistics/stamp -H "Content-Type:application/json" -H "accesstoken: <Your access token>" -X POST --data '{"tracking_number":"xap36y3p85Oio0","checkpoints":[{"courier":"wise-express","location":"Shanghai","status_code": 1,"time":1539178398},{"courier":"wise-express","location":"Thailand", "status_code": 2, "time":1539179398}]}'
+$ curl https://graphql-dev.shoppo.com/api/wise/logistics/stamp -H "Content-Type:application/json" -H "accesstoken: <Your access token>" -X POST --data '{"tracking_number":"xap36y3p85Oio0","checkpoints":[{"courier":"wise-express","status_number":1,"status_desc":"\u5c0f\u4ef6\u63fd\u6536","date":"2016-08-22 00:00:00"},{"courier":"wise-express","status_number":2,"status_desc":"\u5c0f\u4ef6\u5165\u4ed3","date":"2016-08-23 00:00:00"}]}'
 
 ```
 
@@ -78,7 +79,7 @@ $ curl https://graphql-dev.shoppo.com/api/wise/logistics/stamp -H "Content-Type:
 type |  | int | 是 | 类型 1: 小件, 2: 合单
 tracking_number | | string| 是 | 包裹物流单号
 checkpoints | | array | 是 | 轨迹列表
-    | courier  | string | 是 | 物流公司 
-    | location | string | 是 | 位置
-    | status_code |  int   | 否 | 状态码 1: 小件揽收, 2: 小件入仓, 3: 合单出仓
-    | time     |  int   | 是  |  时间戳
+    | status_number | int    | 是 | 状态码 1: 小件揽收, 2: 小件入仓, 3: 合单出仓 |
+    | status_desc   | string | 否 | 状态说明                                     |
+    | date          | string | 是 | 日期时间， 如 2016-08-22 00:00:00            |
+    |  remark       | string | 否  | 说明                                           |
