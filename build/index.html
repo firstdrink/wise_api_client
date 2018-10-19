@@ -297,7 +297,8 @@
 <blockquote>
 <p>curl请求</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="nv">$ </span>curl https://graphql-dev.shoppo.com/api/wise/logistics/stamp <span class="nt">-H</span> <span class="s2">"Content-Type:application/json"</span> <span class="nt">-H</span> <span class="s2">"accesstoken: &lt;Your access token&gt;"</span> <span class="nt">-X</span> POST <span class="nt">--data</span> <span class="s1">'{"order_items":[{"tracking_number":"l4kbkMvDQQ0Sql","weight":2.2},{"tracking_number":"xkq8qMDR66ktA3","weight":1.1}],"order_id":"xap36y3p85Oio0"}'</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="nv">$ </span>curl https://graphql-dev.shoppo.com/api/wise/logistics/stamp <span class="nt">-H</span> <span class="s2">"Content-Type:application/json"</span> <span class="nt">-H</span> <span class="s2">"accesstoken: 6146211cb3c54a5999b78f4df1f88b63"</span> <span class="nt">-X</span> POST <span class="nt">--data</span> <span class="s1">'{"order_items":[{"tracking_number":"Z6y2yDEZpoaFa6","weight":2.2},{"tracking_number":"aKgRgDZ6vnvug1","weight":1.1}],"order_id":"NKozBgz8gvqCoY"}'</span>
+
 </code></pre></div><h3 id='json'>json请求参数说明:</h3>
 <table><thead>
 <tr>
@@ -345,9 +346,9 @@
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"stamp_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://cdn.shoppo.com/ temporary_uploaded_files/2d80da072a3e4ea5888f4a4d24549798.pdf"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"tracking_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UG979450065CN"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"order_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xap36y3p85Oio0"</span><span class="w">
+        </span><span class="s2">"order_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NKozBgz8gvqCoY"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"stamp_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cdn.shoppo.com/temporary_uploaded_files/75dbe397d3564c1d9f4b46bff4db8da7.pdf"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tracking_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NKozBgz8gvqCoY"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='8ce1a08783'>返回参数说明:</h3>

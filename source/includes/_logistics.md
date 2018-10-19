@@ -18,7 +18,8 @@
 > curl请求
 
 ```shell
-$ curl https://graphql-dev.shoppo.com/api/wise/logistics/stamp -H "Content-Type:application/json" -H "accesstoken: <Your access token>" -X POST --data '{"order_items":[{"tracking_number":"l4kbkMvDQQ0Sql","weight":2.2},{"tracking_number":"xkq8qMDR66ktA3","weight":1.1}],"order_id":"xap36y3p85Oio0"}'
+$ curl https://graphql-dev.shoppo.com/api/wise/logistics/stamp -H "Content-Type:application/json" -H "accesstoken: 6146211cb3c54a5999b78f4df1f88b63" -X POST --data '{"order_items":[{"tracking_number":"Z6y2yDEZpoaFa6","weight":2.2},{"tracking_number":"aKgRgDZ6vnvug1","weight":1.1}],"order_id":"NKozBgz8gvqCoY"}'
+
 ```
 
 ### json请求参数说明:
@@ -39,9 +40,9 @@ order_items | | array | 是 | 订单项列表
 ```json
 {
 	"data": {
-		"stamp_url": "http://cdn.shoppo.com/ temporary_uploaded_files/2d80da072a3e4ea5888f4a4d24549798.pdf",
-        "tracking_number": "UG979450065CN",
-        "order_id": "xap36y3p85Oio0"
+		"order_id": "NKozBgz8gvqCoY",
+		"stamp_url": "https://cdn.shoppo.com/temporary_uploaded_files/75dbe397d3564c1d9f4b46bff4db8da7.pdf",
+		"tracking_number": "NKozBgz8gvqCoY"
 	}
 }
 ```
