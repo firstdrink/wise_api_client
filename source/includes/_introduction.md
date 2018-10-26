@@ -8,6 +8,7 @@
 - 调用方式: `https`
 - 编码格式: `utf-8`
 - 接口验证: `accesstoken`
+- 测试环境 `accesstoken`: `6146211cb3c54a5999b78f4df1f88b63`
 
 
 > curl请求(get)
