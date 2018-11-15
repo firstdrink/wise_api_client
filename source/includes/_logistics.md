@@ -18,7 +18,7 @@
 > curl请求
 
 ```shell
-$ curl https://graphql-dev.shoppo.com/api/wise/logistics/stamp -H "Content-Type:application/json" -H "accesstoken: 6146211cb3c54a5999b78f4df1f88b63" -X POST --data '{"order_items":[{"tracking_number":"Z6y2yDEZpoaFa6","weight":2.2},{"tracking_number":"aKgRgDZ6vnvug1","weight":1.1}],"order_id":"NKozBgz8gvqCoY", "has_battery": true}'
+$ curl https://graphql-dev.shoppo.com/api/wise/logistics/stamp -H "Content-Type:application/json" -H "accesstoken: 6146211cb3c54a5999b78f4df1f88b63" -X POST --data '{"order_items":[{"tracking_number":"Z6y2yDEZpoaFa6","weight":2.2},{"tracking_number":"aKgRgDZ6vnvug1","weight":1.1}],"tracking_number":"NKozBgz8gvqCoY", "has_battery": true}'
 
 ```
 
@@ -26,7 +26,7 @@ $ curl https://graphql-dev.shoppo.com/api/wise/logistics/stamp -H "Content-Type:
 
 名称 | 二级名称 | 类型 | 必填 | 描述
 --- | ---- | --- | --- | ---
-order_id | | string | 是 | 订单ID
+tracking_number | | string | 是 | 合单物流单号，也就是logistics_order_code
 has_battery | | boolean | 是 | 包裹是否带电
 order_items | | array | 是 | 订单项列表
             | tracking_number | string | 是 | 包裹面单号 |
