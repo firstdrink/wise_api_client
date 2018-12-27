@@ -82,6 +82,9 @@ type |  | int | 是 | 类型 1: 小件, 2: 合单
 tracking_number | | string| 是 | 包裹物流单号
 checkpoints | | array | 是 | 轨迹列表
     | status_number | int    | 是 | 状态码 1: 小件揽收, 2: 小件入仓, 3: 合单出仓, 4: 小件退货, 5: 退货签收 |
-    | status_desc   | string | 否 | 状态说明                                     |
-    | date          | string | 是 | 日期时间， 如 2016-08-22 00:00:00            |
-    |  remark       | string | 否  | 说明                                           |
+    | status_desc   | string | 否 | 状态说明                                                               |
+    | date          | string | 是 | 日期时间， 如 2016-08-22 00:00:00                                      |
+    | remark        | string | 否 | 说明                                                                   |
+    | location      | string | 是 | 位置                                                                   |
+    | weight        | float  | 否  |  重量， 单位Kg                                                              |
+    | has_battery   | boolean | 否  | 是否带电                                                                   |
