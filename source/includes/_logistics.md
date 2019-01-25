@@ -88,3 +88,135 @@ checkpoints | | array | 是 | 轨迹列表
     | location      | string | 是 | 位置                                                                   |
     | weight        | float  | 否  |  重量， 单位Kg                                                              |
     | has_battery   | boolean | 否  | 是否带电                                                                   |
+
+
+
+## 获取物流订单
+
+### `/api/wise/logistics/order`
+
+- `Wise` 调用 `Shoppo` 接口，获取物流订单信息
+- 请求方式: `POST`
+
+
+
+> curl请求
+
+```shell
+
+$ curl https://graphql-dev.shoppo.com/api/wise/logistics/order -H "Content-Type:application/json" -H "accesstoken: <Your access token>" -X POST --data '{"tracking_number":"KE0231645SH01"}'
+
+```
+
+### json请求参数说明
+
+名称 | 二级名称 | 类型 | 必填 | 描述
+--- | ---- | --- | --- | ---
+tracking_number | | string | 是 | 小包物流单号
+
+
+> json结果
+
+> status code: 200
+
+```json
+{
+	"api_key": "8D075F4EF0B04891228233840D8BED9F",
+	"logistics_order_code": "KE0231645",
+	"tracking_id": "KE0231645SH01",
+	"order_time": "2019-01-25T05:00:28",
+	"timestamp": "2019-01-25T09:41:26.953780",
+	"carrier_code": 9901,
+	"carry_type": 1,
+	"pick_type": 1,
+	"otype": "shoppo_3-0",
+	"sname": "Shoppo",
+	"shoppo_sname": "Shoppo",
+	"shoppo_service_type": "Shoppo_Combine",
+	"user_custom_description": "",
+	"paid_with_shoppo": false,
+	"payment_account": null,
+	"sys_user": "0nl8q48x20MiX",
+	"parcel": {
+		"description_en": "Men Accessory Classic Ties Striped Plaid Necktie",
+		"description_local": "",
+		"weight": 1.0,
+		"weight_unit": "kg",
+		"declare_value": 4.29,
+		"price_unit": "dollar",
+		"price_currency": "usd",
+		"has_battery": false,
+		"is_plastic": true,
+		"product_list": [{
+			"description_en": "Men Accessory Classic Ties Striped Plaid Necktie",
+			"description_local": "Men Accessory Classic Ties Striped Plaid Necktie",
+			"origin_country": "中国",
+			"origin_country_code": "CHN",
+			"value": 4.29,
+			"weight": 1.0,
+			"quantity": 1,
+			"has_battery": false,
+			"sku": "z0G3GM2gAkVUkl"
+		}]
+	},
+	"sender": {
+		"company": "Luckeve",
+		"mobile": "",
+		"phone": "15919793526",
+		"country_code": "CHN",
+		"zipcode": "518116",
+		"address_en": {
+			"name": "chen si",
+			"country": "China",
+			"province": "Guangdong",
+			"city": "Shenzhen",
+			"street_address1": "8/F,Building No.2,Qianlong logistics Park, No.3 ping'an Road.Pinghu Town"
+		}
+	},
+	"receiver": {
+		"company": "Kilimall",
+		"mobile": "13751353958",
+		"phone": "",
+		"country_code": "CHN",
+		"address_en": {
+			"name": "Kilimall",
+			"country": "China",
+			"province": "Guangzhou",
+			"city": "Dongguan",
+			"street_address1": "Dao jiao town, Jiu qu village, Da zhong Road, Ji Yuntong South China Distribution Center"
+		},
+		"address_local": {
+			"name": "Kilimall",
+			"country": "中国",
+			"province": "广州",
+			"city": "东莞",
+			"street_address1": "道滘镇九曲村大众路集运通华南配送中心"
+		}
+	},
+	"return_info": {
+		"return_action_in_country": 3,
+		"return_action_out_country": 0,
+		"return_address_in_country": {
+			"company": "Kilimall",
+			"phone": "",
+			"mobile": "13751353958",
+			"country_code": "CHN",
+			"address_en": {
+				"name": "Kilimall",
+				"country": "China",
+				"province": "Guangzhou",
+				"city": "Dongguan",
+				"street_address1": "Dao jiao town, Jiu qu village, Da zhong Road, Ji Yuntong South China Distribution Center"
+			},
+			"address_local": {
+				"name": "Kilimall",
+				"country": "中国",
+				"province": "广州",
+				"city": "东莞",
+				"street_address1": "道滘镇九曲村大众路集运通华南配送中心"
+			}
+		}
+	}
+}
+
+```

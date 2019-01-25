@@ -239,6 +239,9 @@
                   <li>
                     <a href="#f21caf117f" class="toc-h2 toc-link" data-title="推送物流轨迹">推送物流轨迹</a>
                   </li>
+                  <li>
+                    <a href="#cd2bcb4f15" class="toc-h2 toc-link" data-title="获取物流订单">获取物流订单</a>
+                  </li>
               </ul>
           </li>
       </ul>
@@ -491,7 +494,142 @@
 <td>是否带电</td>
 </tr>
 </tbody></table>
+<h2 id='cd2bcb4f15'>获取物流订单</h2><h3 id='api-wise-logistics-order'><code>/api/wise/logistics/order</code></h3>
+<ul>
+<li><code>Wise</code> 调用 <code>Shoppo</code> 接口，获取物流订单信息</li>
+<li>请求方式: <code>POST</code></li>
+</ul>
 
+<blockquote>
+<p>curl请求</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>
+<span class="nv">$ </span>curl https://graphql-dev.shoppo.com/api/wise/logistics/order <span class="nt">-H</span> <span class="s2">"Content-Type:application/json"</span> <span class="nt">-H</span> <span class="s2">"accesstoken: &lt;Your access token&gt;"</span> <span class="nt">-X</span> POST <span class="nt">--data</span> <span class="s1">'{"tracking_number":"KE0231645SH01"}'</span>
+
+</code></pre></div><h3 id='json-3'>json请求参数说明</h3>
+<table><thead>
+<tr>
+<th>名称</th>
+<th>二级名称</th>
+<th>类型</th>
+<th>必填</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>tracking_number</td>
+<td></td>
+<td>string</td>
+<td>是</td>
+<td>小包物流单号</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>json结果</p>
+
+<p>status code: 200</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8D075F4EF0B04891228233840D8BED9F"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"logistics_order_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KE0231645"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"tracking_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KE0231645SH01"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"order_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-25T05:00:28"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-25T09:41:26.953780"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"carrier_code"</span><span class="p">:</span><span class="w"> </span><span class="mi">9901</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"carry_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"pick_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"otype"</span><span class="p">:</span><span class="w"> </span><span class="s2">"shoppo_3-0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Shoppo"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"shoppo_sname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Shoppo"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"shoppo_service_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Shoppo_Combine"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"user_custom_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"paid_with_shoppo"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"payment_account"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sys_user"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0nl8q48x20MiX"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"parcel"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"description_en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Men Accessory Classic Ties Striped Plaid Necktie"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description_local"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"weight"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"weight_unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"kg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"declare_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.29</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price_unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dollar"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price_currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usd"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"has_battery"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"is_plastic"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"product_list"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+            </span><span class="s2">"description_en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Men Accessory Classic Ties Striped Plaid Necktie"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"description_local"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Men Accessory Classic Ties Striped Plaid Necktie"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"origin_country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"中国"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"origin_country_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CHN"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.29</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"weight"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"has_battery"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"z0G3GM2gAkVUkl"</span><span class="w">
+        </span><span class="p">}]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"sender"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Luckeve"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15919793526"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"country_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CHN"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"zipcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"518116"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"address_en"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"chen si"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"China"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"province"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Guangdong"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Shenzhen"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"street_address1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8/F,Building No.2,Qianlong logistics Park, No.3 ping'an Road.Pinghu Town"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"receiver"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kilimall"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13751353958"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"country_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CHN"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"address_en"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kilimall"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"China"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"province"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Guangzhou"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dongguan"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"street_address1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dao jiao town, Jiu qu village, Da zhong Road, Ji Yuntong South China Distribution Center"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"address_local"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kilimall"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"中国"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"province"</span><span class="p">:</span><span class="w"> </span><span class="s2">"广州"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"东莞"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"street_address1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"道滘镇九曲村大众路集运通华南配送中心"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"return_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"return_action_in_country"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"return_action_out_country"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"return_address_in_country"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kilimall"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13751353958"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"country_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CHN"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"address_en"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kilimall"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"China"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"province"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Guangzhou"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dongguan"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"street_address1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dao jiao town, Jiu qu village, Da zhong Road, Ji Yuntong South China Distribution Center"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"address_local"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kilimall"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"中国"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"province"</span><span class="p">:</span><span class="w"> </span><span class="s2">"广州"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"东莞"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"street_address1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"道滘镇九曲村大众路集运通华南配送中心"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre></div>
       </div>
       <div class="dark-box">
       </div>
