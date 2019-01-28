@@ -34,7 +34,7 @@ order_items | | array | 是 | 订单项列表
 
 
 
-> json结果
+> 成功JSON
 
 > status code: 200
 
@@ -43,21 +43,72 @@ order_items | | array | 是 | 订单项列表
 	"data": {
 		"order_id": "NKozBgz8gvqCoY",
 		"stamp_url": "https://cdn.shoppo.com/temporary_uploaded_files/75dbe397d3564c1d9f4b46bff4db8da7.pdf",
-		"tracking_number": "NKozBgz8gvqCoY"
+		"tracking_number": "NKozBgz8gvqCoY",
+        "status": "SUCCESS"
+	}
+}
+```
+
+> 等待JSON
+
+> status code: 200
+
+```json
+{
+	"data": {
+		"order_id": "NKozBgz8gvqCoY",
+		"tracking_number": "NKozBgz8gvqCoY",
+        "missing_tracking_numbers": ["NKozBgz8gvqCoZ"],
+        "status": "PENDING"
 	}
 }
 ```
 
 
 
+> 取消JSON
+
+> status code: 200
+
+```json
+{
+	"data": {
+		"order_id": "NKozBgz8gvqCoY",
+		"tracking_number": "NKozBgz8gvqCoY",
+        "status": "CANCELLED"
+	}
+}
+```
+
+
+> 异常JSON
+
+> status code: 400
+
+```json
+{
+    "errors": [
+        {
+            "display_to_user": true,
+            "message": "Can not find ShippingPackage by tracking_number: NKozBgz8gvqCoW",
+            "type": "InvalidUserInput"
+        }
+    ]
+}
+```
+
 ### 返回参数说明:
 
 名称 | 二级名称 | 类型 | 必填 | 描述
 --- | --- | --- | --- | ---
 data | | object | 是 | 
-     | stamp_url       | string | 是 | 面单链接     |
-     | tracking_number | string | 是 | 合单物流单号 |
-     | order_id        | string | 是 | 订单ID       |
+     | stamp_url       | string | 是 | 面单链接                                                            |
+     | tracking_number | string | 是 | 合单物流单号                                                        |
+     | order_id        | string | 是 | 订单ID                                                              |
+     | status          | string | 是 | 状态: SUCCESS： 成功， PENGING: 等待其他小包, CANCELLED: 订单已取消 |
+
+
+
 ## 推送物流轨迹
 
 ### `/api/wise/logistics/checkpoints`
@@ -104,7 +155,7 @@ checkpoints | | array | 是 | 轨迹列表
 
 ```shell
 
-$ curl https://graphql-dev.shoppo.com/api/wise/logistics/order -H "Content-Type:application/json" -H "accesstoken: <Your access token>" -X POST --data '{"tracking_number":"KE0231645SH01"}'
+$ curl https://graphql-dev.shoppo.com/api/wise/logistics/order -H "Content-Type:application/json" -H "accesstoken: <Your access token>" -X POST --data '{"tracking_numbers": ["KE0231645SH01"]}'
 
 ```
 
@@ -120,7 +171,7 @@ tracking_number | | string | 是 | 小包物流单号
 > status code: 200
 
 ```json
-{
+[{
 	"api_key": "8D075F4EF0B04891228233840D8BED9F",
 	"logistics_order_code": "KE0231645",
 	"tracking_id": "KE0231645SH01",
@@ -217,6 +268,5 @@ tracking_number | | string | 是 | 小包物流单号
 			}
 		}
 	}
-}
-
+}]
 ```
