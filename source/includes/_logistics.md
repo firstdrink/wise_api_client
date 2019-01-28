@@ -40,12 +40,11 @@ order_items | | array | 是 | 订单项列表
 
 ```json
 {
-	"data": {
-		"order_id": "NKozBgz8gvqCoY",
-		"stamp_url": "https://cdn.shoppo.com/temporary_uploaded_files/75dbe397d3564c1d9f4b46bff4db8da7.pdf",
-		"tracking_number": "NKozBgz8gvqCoY",
-        "status": "SUCCESS"
-	}
+	"order_id": "NKozBgz8gvqCoY",
+	"stamp_url": "https://cdn.shoppo.com/temporary_uploaded_files/75dbe397d3564c1d9f4b46bff4db8da7.pdf",
+	"tracking_number": "NKozBgz8gvqCoY",
+	"status": "SUCCESS"
+
 }
 ```
 
@@ -55,12 +54,10 @@ order_items | | array | 是 | 订单项列表
 
 ```json
 {
-	"data": {
-		"order_id": "NKozBgz8gvqCoY",
-		"tracking_number": "NKozBgz8gvqCoY",
-        "missing_tracking_numbers": ["NKozBgz8gvqCoZ"],
-        "status": "PENDING"
-	}
+	"order_id": "NKozBgz8gvqCoY",
+	"tracking_number": "NKozBgz8gvqCoY",
+	"missing_tracking_numbers": ["NKozBgz8gvqCoZ"],
+	"status": "PENDING"
 }
 ```
 
@@ -72,11 +69,9 @@ order_items | | array | 是 | 订单项列表
 
 ```json
 {
-	"data": {
-		"order_id": "NKozBgz8gvqCoY",
-		"tracking_number": "NKozBgz8gvqCoY",
-        "status": "CANCELLED"
-	}
+	"order_id": "NKozBgz8gvqCoY",
+	"tracking_number": "NKozBgz8gvqCoY",
+	"status": "CANCELLED"
 }
 ```
 
