@@ -150,7 +150,7 @@ checkpoints | | array | 是 | 轨迹列表
 
 ```shell
 
-$ curl https://graphql-dev.shoppo.com/api/wise/logistics/order -H "Content-Type:application/json" -H "accesstoken: <Your access token>" -X POST --data '{"tracking_numbers": ["KE0231645SH01"]}'
+$ curl https://api.shoppo.com/api/wise/logistics/order -H "Content-Type:application/json" -H "accesstoken: <Your access token>" -X POST --data '{"tracking_numbers": ["KE0231645SH01"]}'
 
 ```
 
