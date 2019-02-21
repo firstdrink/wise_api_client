@@ -268,11 +268,11 @@ tracking_numbers | | string | 是 | 小包物流单号
 
 
 
-## 获取物流订单
+## 推送待揽收包裹清单
 
-### `/api/wise/logistics/order`
+### `/api/wise/logistics/ready_orders`
 
-- `Wise` 调用 `Shoppo` 接口，推送待揽收包裹信息
+- `Wise` 调用 `Shoppo` 接口，推送待揽收包裹清单
 - 请求方式: `POST`
 
 > curl请求
