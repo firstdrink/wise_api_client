@@ -158,7 +158,7 @@ $ curl https://api.shoppo.com/api/wise/logistics/order -H "Content-Type:applicat
 
 名称 | 二级名称 | 类型 | 必填 | 描述
 --- | ---- | --- | --- | ---
-tracking_number | | string | 是 | 小包物流单号
+tracking_numbers | | string | 是 | 小包物流单号
 
 
 > json结果
@@ -265,3 +265,49 @@ tracking_number | | string | 是 | 小包物流单号
 	}
 }]
 ```
+
+
+
+## 获取物流订单
+
+### `/api/wise/logistics/order`
+
+- `Wise` 调用 `Shoppo` 接口，推送待揽收包裹信息
+- 请求方式: `POST`
+
+> curl请求
+
+```shell
+
+$ curl https://api.shoppo.com/api/wise/logistics/ready_orders -H "Content-Type:application/json" -H "accesstoken: <Your access token>" -X POST --data '{"tracking_numbers": ["KE0231645SH01"]}'
+
+```
+
+
+### json请求参数说明
+
+名称 | 二级名称 | 类型 | 必填 | 描述
+--- | ---- | --- | --- | ---
+tracking_numbers | | string | 是 | 小包物流单号
+
+
+> 返回结果
+> status code: 200
+
+```json
+{
+	"data": {
+		"log_id": "ERVZgdDRMnQIBZ"
+	},
+	"message": "OK"
+}
+```
+
+### 返回参数说明:
+
+名称 | 二级名称 | 类型 | 必填 | 描述
+--- | --- | --- | --- | ---
+message | | string | 是 | 消息说明
+data | | object | 是 | 
+     | log_id          | string   | 是 | 日志ID 
+
