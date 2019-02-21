@@ -242,6 +242,9 @@
                   <li>
                     <a href="#cd2bcb4f15" class="toc-h2 toc-link" data-title="获取物流订单">获取物流订单</a>
                   </li>
+                  <li>
+                    <a href="#7523202840" class="toc-h2 toc-link" data-title="推送待揽收包裹清单">推送待揽收包裹清单</a>
+                  </li>
               </ul>
           </li>
       </ul>
@@ -562,7 +565,7 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>tracking_number</td>
+<td>tracking_numbers</td>
 <td></td>
 <td>string</td>
 <td>是</td>
@@ -673,7 +676,80 @@
         </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}]</span><span class="w">
-</span></code></pre></div>
+</span></code></pre></div><h2 id='7523202840'>推送待揽收包裹清单</h2><h3 id='api-wise-logistics-ready_orders'><code>/api/wise/logistics/ready_orders</code></h3>
+<ul>
+<li><code>Wise</code> 调用 <code>Shoppo</code> 接口，推送待揽收包裹清单</li>
+<li>请求方式: <code>POST</code></li>
+</ul>
+
+<blockquote>
+<p>curl请求</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>
+<span class="nv">$ </span>curl https://api.shoppo.com/api/wise/logistics/ready_orders <span class="nt">-H</span> <span class="s2">"Content-Type:application/json"</span> <span class="nt">-H</span> <span class="s2">"accesstoken: &lt;Your access token&gt;"</span> <span class="nt">-X</span> POST <span class="nt">--data</span> <span class="s1">'{"tracking_numbers": ["KE0231645SH01"]}'</span>
+
+</code></pre></div><h3 id='json-4'>json请求参数说明</h3>
+<table><thead>
+<tr>
+<th>名称</th>
+<th>二级名称</th>
+<th>类型</th>
+<th>必填</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>tracking_numbers</td>
+<td></td>
+<td>string</td>
+<td>是</td>
+<td>小包物流单号</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>返回结果
+status code: 200</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"log_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ERVZgdDRMnQIBZ"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OK"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='8ce1a08783-2'>返回参数说明:</h3>
+<table><thead>
+<tr>
+<th>名称</th>
+<th>二级名称</th>
+<th>类型</th>
+<th>必填</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>message</td>
+<td></td>
+<td>string</td>
+<td>是</td>
+<td>消息说明</td>
+</tr>
+<tr>
+<td>data</td>
+<td></td>
+<td>object</td>
+<td>是</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>log_id</td>
+<td>string</td>
+<td>是</td>
+<td>日志ID</td>
+</tr>
+</tbody></table>
+
       </div>
       <div class="dark-box">
       </div>
