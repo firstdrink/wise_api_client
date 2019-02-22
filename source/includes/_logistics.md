@@ -274,6 +274,7 @@ tracking_numbers | | string | 是 | 小包物流单号
 
 - `Wise` 调用 `Shoppo` 接口，推送待揽收包裹清单
 - 请求方式: `POST`
+- 待揽收包裹清单如果万色一天之内推送多次的话，以最后推送的为准，之前的推送记录Shoppo不做处理。
 
 > curl请求
 
