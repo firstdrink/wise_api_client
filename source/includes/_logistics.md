@@ -290,6 +290,7 @@ $ curl https://api.shoppo.com/api/wise/logistics/ready_orders -H "Content-Type:a
 名称 | 二级名称 | 类型 | 必填 | 描述
 --- | ---- | --- | --- | ---
 tracking_numbers | | string | 是 | 小包物流单号
+package_no | | string | 是 | 大包号
 
 
 > 返回结果
