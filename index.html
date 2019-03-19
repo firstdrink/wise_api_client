@@ -304,7 +304,7 @@
 <blockquote>
 <p>curl请求</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="nv">$ </span>curl https://graphql-dev.shoppo.com/api/wise/logistics/stamp <span class="nt">-H</span> <span class="s2">"Content-Type:application/json"</span> <span class="nt">-H</span> <span class="s2">"accesstoken: 6146211cb3c54a5999b78f4df1f88b63"</span> <span class="nt">-X</span> POST <span class="nt">--data</span> <span class="s1">'{"order_items":[{"tracking_number":"Z6y2yDEZpoaFa6","weight":2.2},{"tracking_number":"aKgRgDZ6vnvug1","weight":1.1}],"tracking_number":"NKozBgz8gvqCoY", "has_battery": true}'</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="nv">$ </span>curl https://graphql-dev.shoppo.com/api/wise/logistics/stamp <span class="nt">-H</span> <span class="s2">"Content-Type:application/json"</span> <span class="nt">-H</span> <span class="s2">"accesstoken: 6146211cb3c54a5999b78f4df1f88b63"</span> <span class="nt">-X</span> POST <span class="nt">--data</span> <span class="s1">'{"order_items":[{"tracking_number":"Z6y2yDEZpoaFa6","weight":2.2},{"tracking_number":"aKgRgDZ6vnvug1","weight":1.1}],"tracking_number":"NKozBgz8gvqCoY", "has_battery": true, "channel_code": "IN19A04"}'</span>
 
 </code></pre></div><h3 id='json'>json请求参数说明:</h3>
 <table><thead>
@@ -316,6 +316,13 @@
 <th>描述</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>channel_code</td>
+<td></td>
+<td>string</td>
+<td>是</td>
+<td>渠道号(Shoppo/Create_order的user_custom_description字段传给万色)</td>
+</tr>
 <tr>
 <td>tracking_number</td>
 <td></td>
