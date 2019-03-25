@@ -697,11 +697,41 @@
 <span class="nv">$ </span>curl https://api.shoppo.com/api/wise/logistics/ready_orders <span class="nt">-H</span> <span class="s2">"Content-Type:application/json"</span> <span class="nt">-H</span> <span class="s2">"accesstoken: &lt;Your access token&gt;"</span> <span class="nt">-X</span> POST <span class="nt">--data</span> <span class="s1">'{"tracking_numbers": ["KE0231645SH01"]}'</span>
 
 </code></pre></div><h3 id='json-4'>json请求参数说明</h3>
-<p>名称 | 二级名称 | 三级名称 | 类型 | 必填 | 描述
---- | ---- | --- | | ---| --- | ---
-orderInfo | | | dict | 是 | 包含所有的大包信息
-  |  <package_number> | |   dict_key   | 是 | 小包物流单号
- | | tracking_numbers | dict_value(list)  | 是 | 大包号</p>
+<table><thead>
+<tr>
+<th>名称</th>
+<th>二级名称</th>
+<th>三级名称</th>
+<th>类型</th>
+<th>必填</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>orderInfo</td>
+<td></td>
+<td></td>
+<td>dict</td>
+<td>是</td>
+<td>包含所有的大包信息</td>
+</tr>
+<tr>
+<td></td>
+<td><package_number></td>
+<td></td>
+<td>dict_key</td>
+<td>是</td>
+<td>小包物流单号</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>tracking_numbers</td>
+<td>dict_value(list)</td>
+<td>是</td>
+<td>大包号</td>
+</tr>
+</tbody></table>
 
 <blockquote>
 <p>参数
