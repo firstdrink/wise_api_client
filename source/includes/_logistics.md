@@ -288,19 +288,47 @@ $ curl https://api.shoppo.com/api/wise/logistics/ready_orders -H "Content-Type:a
 
 ### json请求参数说明
 
-名称 | 二级名称 | 类型 | 必填 | 描述
---- | ---- | --- | --- | ---
-tracking_numbers | | string | 是 | 小包物流单号
-package_number | | string | 是 | 大包号
+名称 | 二级 | 三级 | 类型 | 必填 | 描述
+--- | ---- | --- | ---- | ---| --- 
+orderInfo | | | dict | 是 | 包含所有的大包信息
+  |  {package_number}  | |   dict_key   | 是 | 大包号
+ | | tracking_numbers | dict_value(list)  | 是 | 小包物流单号列表
+
+
+> 参数
+
+> 当天有包裹
+
+```json
+{
+	"orderInfo": {
+		"p1": ["t1", "t2", "t3"],
+		"p2": ["t4", "t5", "t6"]
+	}
+}
+```
+
+
+
+> 参数
+
+> 当天无包裹
+
+```json
+{
+	"orderInfo": {}
+}
+```
 
 
 > 返回结果
+
 > status code: 200
 
 ```json
 {
 	"data": {
-		"log_id": "ERVZgdDRMnQIBZ"
+		"log_ids": [1, 2, 3, 4],
 	},
 	"message": "OK"
 }
