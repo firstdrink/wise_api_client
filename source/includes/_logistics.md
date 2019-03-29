@@ -116,7 +116,7 @@ data | | object | 是 |
 
 ```shell
 
-$ curl https://graphql-dev.shoppo.com/api/wise/logistics/stamp -H "Content-Type:application/json" -H "accesstoken: <Your access token>" -X POST --data '{"tracking_number":"xap36y3p85Oio0","checkpoints":[{"date":"2016-08-22 00:00:00","status_desc":"小件揽收","courier":"wise-express","status_number":1},{"date":"2016-08-23 00:00:00","status_desc":"小件入仓","courier":"wise-express","status_number":2}]}'
+$ curl https://graphql-dev.shoppo.com/api/wise/logistics/stamp -H "Content-Type:application/json" -H "accesstoken: <Your access token>" -X POST --data '{"carrier_code": 9901, "tracking_number":"xap36y3p85Oio0","checkpoints":[{"date":"2016-08-22 00:00:00","status_desc":"小件揽收","courier":"wise-express","status_number":1},{"date":"2016-08-23 00:00:00","status_desc":"小件入仓","courier":"wise-express","status_number":2}]}'
 
 ```
 
@@ -127,6 +127,7 @@ $ curl https://graphql-dev.shoppo.com/api/wise/logistics/stamp -H "Content-Type:
 --- | --- | --- | --- | ----
 type |  | int | 是 | 类型 1: 小件, 2: 合单
 tracking_number | | string| 是 | 包裹物流单号
+carrier_code | | int | 是 | 万色渠道号
 checkpoints | | array | 是 | 轨迹列表
     | status_number | int    | 是 | 状态码 1: 小件揽收, 2: 小件入仓, 3: 合单出仓, 4: 小件退货, 5: 退货签收 |
     | status_desc   | string | 否 | 状态说明                                                               |
