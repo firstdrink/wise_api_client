@@ -466,7 +466,7 @@
 <p>curl请求</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>
-<span class="nv">$ </span>curl https://graphql-dev.shoppo.com/api/wise/logistics/stamp <span class="nt">-H</span> <span class="s2">"Content-Type:application/json"</span> <span class="nt">-H</span> <span class="s2">"accesstoken: &lt;Your access token&gt;"</span> <span class="nt">-X</span> POST <span class="nt">--data</span> <span class="s1">'{"tracking_number":"xap36y3p85Oio0","checkpoints":[{"date":"2016-08-22 00:00:00","status_desc":"小件揽收","courier":"wise-express","status_number":1},{"date":"2016-08-23 00:00:00","status_desc":"小件入仓","courier":"wise-express","status_number":2}]}'</span>
+<span class="nv">$ </span>curl https://graphql-dev.shoppo.com/api/wise/logistics/stamp <span class="nt">-H</span> <span class="s2">"Content-Type:application/json"</span> <span class="nt">-H</span> <span class="s2">"accesstoken: &lt;Your access token&gt;"</span> <span class="nt">-X</span> POST <span class="nt">--data</span> <span class="s1">'{"carrier_code": 9901, "tracking_number":"xap36y3p85Oio0","checkpoints":[{"date":"2016-08-22 00:00:00","status_desc":"小件揽收","courier":"wise-express","status_number":1},{"date":"2016-08-23 00:00:00","status_desc":"小件入仓","courier":"wise-express","status_number":2}]}'</span>
 
 </code></pre></div><h3 id='json-2'>json请求参数说明:</h3>
 <table><thead>
