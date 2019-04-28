@@ -304,7 +304,7 @@
 <blockquote>
 <p>curl请求</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="nv">$ </span>curl https://graphql-dev.shoppo.com/api/wise/logistics/stamp <span class="nt">-H</span> <span class="s2">"Content-Type:application/json"</span> <span class="nt">-H</span> <span class="s2">"accesstoken: 6146211cb3c54a5999b78f4df1f88b63"</span> <span class="nt">-X</span> POST <span class="nt">--data</span> <span class="s1">'{"order_items":[{"tracking_number":"Z6y2yDEZpoaFa6","weight":2.2},{"tracking_number":"aKgRgDZ6vnvug1","weight":1.1}],"tracking_number":"NKozBgz8gvqCoY", "has_battery": true, "carrier_code": 9901}'</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="nv">$ </span>curl https://graphql-dev.shoppo.com/api/wise/logistics/stamp <span class="nt">-H</span> <span class="s2">"Content-Type:application/json"</span> <span class="nt">-H</span> <span class="s2">"accesstoken: 6146211cb3c54a5999b78f4df1f88b63"</span> <span class="nt">-X</span> POST <span class="nt">--data</span> <span class="s1">'{"order_items":[{"tracking_number":"Z6y2yDEZpoaFa6","weight":2.2, "has_battery": true},{"tracking_number":"aKgRgDZ6vnvug1","weight":1.1, "has_battery": false}],"tracking_number":"NKozBgz8gvqCoY", "has_battery": true, "carrier_code": 9901}'</span>
 
 </code></pre></div><h3 id='json'>json请求参数说明:</h3>
 <table><thead>
@@ -357,6 +357,13 @@
 <td>float</td>
 <td>是</td>
 <td>重量(Kg)</td>
+</tr>
+<tr>
+<td></td>
+<td>has_battery</td>
+<td>boolean</td>
+<td>是</td>
+<td>是否带电</td>
 </tr>
 </tbody></table>
 
