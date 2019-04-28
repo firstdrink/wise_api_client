@@ -18,7 +18,7 @@
 > curl请求
 
 ```shell
-$ curl https://graphql-dev.shoppo.com/api/wise/logistics/stamp -H "Content-Type:application/json" -H "accesstoken: 6146211cb3c54a5999b78f4df1f88b63" -X POST --data '{"order_items":[{"tracking_number":"Z6y2yDEZpoaFa6","weight":2.2},{"tracking_number":"aKgRgDZ6vnvug1","weight":1.1}],"tracking_number":"NKozBgz8gvqCoY", "has_battery": true, "carrier_code": 9901}'
+$ curl https://graphql-dev.shoppo.com/api/wise/logistics/stamp -H "Content-Type:application/json" -H "accesstoken: 6146211cb3c54a5999b78f4df1f88b63" -X POST --data '{"order_items":[{"tracking_number":"Z6y2yDEZpoaFa6","weight":2.2, "has_battery": true},{"tracking_number":"aKgRgDZ6vnvug1","weight":1.1, "has_battery": false}],"tracking_number":"NKozBgz8gvqCoY", "has_battery": true, "carrier_code": 9901}'
 
 ```
 
@@ -32,6 +32,7 @@ has_battery | | boolean | 是 | 包裹是否带电
 order_items | | array | 是 | 订单项列表
             | tracking_number | string | 是 | 包裹面单号 |
             | weight          | float  | 是 | 重量(Kg)   |
+            | has_battery     | boolean | 是  | 是否带电       |
 
 
 
