@@ -7,6 +7,7 @@ toc_footers:
 includes:
   - introduction
   - logistics
+  - logistics2
 
 search: true
 ---
