@@ -157,7 +157,7 @@ data |  | array    | 是 | 数组
 
 ## 合单出库
 
-![](./images/wise3.png)
+![](./images/wise3.1.png)
 
 ### `/api/wise/logistics/outbound`
 
@@ -191,7 +191,6 @@ data | | object | 是 | 字典
 	}
 }
 ```
-
 
 ### 返回参数说明:
 
