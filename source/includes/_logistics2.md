@@ -4,7 +4,7 @@
 ## 小包入库
 
 
-![](./images/wise2.png)
+![](./images/wise2.1.png)
 
 
 ###  `/api/wise/logistics/inbound`
@@ -68,65 +68,44 @@ message |  |  string  | 是 | 消息
 data |  | array    | 是 | 数组
      | tracking_id               | string | 是 | 运单号         |
      | action                    | int    | 是 | 指令           |
-     | time_expired              | string | 是 | 超时时间       |
-     | logistics_order_code      | string | 否 | 换单号         |
-     | stamp_url                 | string | 否 | 换单链接       |
-     | combined_tracking_numbers | array  | 否 | 合并原单号列表 |
 
 
+> 目前就返回三种指令
+> - 接收成功
+> - 等待合包
+> - 退回商户
 
-> 合包
+
+> 接收成功
 
 ```json
 {
 	"code": 0,
-	"message": "KE11A091905072504, KE11A091905083705共2件合并",
-	"data": {
+	"message": "",
+	"data": [{
 		"action": 1,
-		"combined_tracking_ids": ["KE11A091905072504", "KE11A091905083705"]
-	}
+		"tracking_id": "IN19A041905106124"
+	}, {
+		"action": 1,
+		"tracking_id": "BR02A021905100004"
+	}]
 }
 ```
 
-
-> 换单
-
-```json
-{
-	"code": 0,
-	"message": "换单",
-	"data": {
-		"action": 2,
-		"stamp_url": "https://cdn.shoppo.com/temporary_uploaded_files/948d3fb59a0c4cbaa88b6e12b3c97a91.pdf",
-		"logistics_order_code": "KE0478549"
-	}
-}
-```
-
-
-> 出库
-
-```json
-{
-	"code": 0,
-	"message": "出库",
-	"data": {
-		"action": 3
-	}
-}
-```
 
 > 等待合包
 
 ```json
 {
 	"code": 0,
-	"message": "KE11A091905091801, KE11A091905083705等待入库",
-	"data": {
-		"action": 4,
-		"time_expired": "2019-05-10 12:00:00",
-		"combined_tracking_ids": ["KE11A091905091801", "KE11A091905083705", "KE11A091905073903"]
-	}
+	"message": "BR02A021905100004等待合包",
+	"data": [{
+		"action": 1,
+		"tracking_id": "IN19A041905106124"
+	}, {
+		"action": 2,
+		"tracking_id": "BR02A021905100004"
+	}]
 }
 ```
 
@@ -136,10 +115,14 @@ data |  | array    | 是 | 数组
 ```json
 {
 	"code": 0,
-	"message": "订单已取消",
-	"data": {
-		"action": 5
-	}
+	"message": "IN19A041905106124退回, BR02A021905100004退回",
+	"data": [{
+		"action": 4,
+		"tracking_id": "IN19A041905106124"
+	}, {
+		"action": 4,
+		"tracking_id": "BR02A021905100004"
+	}]
 }
 ```
 
@@ -148,16 +131,16 @@ data |  | array    | 是 | 数组
 
 代码 | 描述
 --- | ---
-1   | 合包
-2   | 换单
-3   | 出库
-4   | 等待合包
-5   | 退回商户
+1   | 接收成功/换单成功
+2   | 等待合包
+3   | 部分发货
+4   | 退回商户
+
 
 
 ## 合单出库
 
-![](./images/wise3.1.png)
+![](./images/wise3.2.png)
 
 ### `/api/wise/logistics/outbound`
 
@@ -199,46 +182,50 @@ data | | object | 是 | 字典
 code | | int | 是 | 代码
 message | | string | 是 | 消息
 data | | object | 是 | 字典
-     | action               | int    | 是 | 指令     |
-     | logistics_order_code | string | 否 | 换单号   |
-     | stamp_url            | string | 否 | 面单链接 |
-     | combined_tracking_ids | array  | 否  | 合并原单号列表  |
+     | action                 | int    | 是 | 指令             |
+     | logistics_order_code   | string | 是 | 换单号           |
+     | cancelled_tracking_ids | string | 否 | 取消的原单号列表 |
+     | missing_tracking_ids   | array  | 否 | 漏掉的原单号列表 |
+     | stamp_url              | string | 否  | 换单面单链接           |
 
 
-> 换单
+> 换单成功
 
 ```json
 {
 	"code": 0,
 	"message": "换单",
 	"data": {
-		"action": 2,
+		"action": 1,
 		"stamp_url": "https://cdn.shoppo.com/temporary_uploaded_files/948d3fb59a0c4cbaa88b6e12b3c97a91.pdf",
 		"logistics_order_code": "KE0480397"
 	}
 }
 ```
 
-> 合包(缺失某个包裹, 该包裹已经入库)
+> 部分发货
 
 ```json
 {
 	"code": 0,
-	"message": "KE11A091905091801, KE11A091905088704, KE11A091905083705共计3件合并。 KE11A091905083705缺失",
+	"message": "KE11A091905088704退货",
 	"data": {
-		"action": 1
+		"action": 3,
+		"cancelled_tracking_ids": ["KE11A091905088704"],
+		"stamp_url": "https://cdn.shoppo.com/temporary_uploaded_files/948d3fb59a0c4cbaa88b6e12b3c97a91.pdf"
 	}
 }
 ```
 
-> 等待合包
+> 退回商户
 
 ```json
 {
 	"code": 0,
-	"message": "KE11A091905091801, KE11A091905088704, KE11A091905083705共计3件合并。 KE11A091905083705等待入库",
+	"message": "KE11A091905091801退货, KE11A091905088704退货",
 	"data": {
-		"action": 4
+		"action": 4,
+		"cancelled_tracking_ids": ["KE11A091905091801", "KE11A091905088704"]
 	}
 }
 ```
