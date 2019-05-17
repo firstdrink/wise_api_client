@@ -100,6 +100,7 @@ order_items | | array | 是 | 订单项列表
 --- | --- | --- | --- | ---
 data | | object | 是 | 
      | stamp_url       | string | 是 | 面单链接                                                            |
+     | sku_stamp_url   | string | 是 | sku面单链接                                                       |
      | tracking_number | string | 是 | 合单物流单号                                                        |
      | order_id        | string | 是 | 订单ID                                                              |
      | status          | string | 是 | 状态: SUCCESS： 成功， PENGING: 等待其他小包, CANCELLED: 订单已取消 |

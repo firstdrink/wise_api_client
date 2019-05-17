@@ -259,6 +259,9 @@
                   <li>
                     <a href="#77694154d3" class="toc-h2 toc-link" data-title="合单出库">合单出库</a>
                   </li>
+                  <li>
+                    <a href="#ec3716a611" class="toc-h2 toc-link" data-title="错误码说明">错误码说明</a>
+                  </li>
               </ul>
           </li>
       </ul>
@@ -454,6 +457,13 @@
 <td>string</td>
 <td>是</td>
 <td>面单链接</td>
+</tr>
+<tr>
+<td></td>
+<td>sku_stamp_url</td>
+<td>string</td>
+<td>是</td>
+<td>sku面单链接</td>
 </tr>
 <tr>
 <td></td>
@@ -851,7 +861,7 @@
 </tr>
 <tr>
 <td></td>
-<td>tracking_id</td>
+<td>trackingId</td>
 <td>string</td>
 <td>是</td>
 <td>原单号</td>
@@ -865,28 +875,28 @@
 </tr>
 <tr>
 <td></td>
-<td>has_battery</td>
+<td>hasBattery</td>
 <td>boolean</td>
 <td>是</td>
 <td>是否带电</td>
 </tr>
 <tr>
 <td></td>
-<td>has_liquid</td>
+<td>hasLiquid</td>
 <td>boolean</td>
 <td>是</td>
 <td>是否带液体</td>
 </tr>
 <tr>
 <td></td>
-<td>has_sensitive</td>
+<td>hasSensitive</td>
 <td>boolean</td>
 <td>是</td>
 <td>是否违禁</td>
 </tr>
 <tr>
 <td></td>
-<td>time_inbound</td>
+<td>timeInbound</td>
 <td>string</td>
 <td>是</td>
 <td>入库时间</td>
@@ -898,28 +908,28 @@
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
-            </span><span class="s2">"tracking_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN19A041905106124"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"trackingId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN19A041905106124"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"weight"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.047</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"has_battery"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"has_liquid"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"has_sensitive"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"time_inbound"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-09 13:01:07"</span><span class="w">
+            </span><span class="s2">"hasBattery"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"hasLiquid"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"hasSensitive"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"timeInbound"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-09 13:01:07"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"tracking_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BR02A021905100004"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"trackingId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BR02A021905100004"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"weight"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.047</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"has_battery"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"has_liquid"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"has_sensitive"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"time_inbound"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-09 16:12:33"</span><span class="w">
+            </span><span class="s2">"hasBattery"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"hasLiquid"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"hasSensitive"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"timeInbound"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-09 16:12:33"</span><span class="w">
         </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
+    </span><span class="p">]</span><span class="w">                                           
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <blockquote>
 <p>curl请求</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl https://graphql-dev.shoppo.com/api/wise/logistics/stamp <span class="nt">-H</span> <span class="s2">"Content-Type:application/json"</span> <span class="nt">-H</span> <span class="s2">"accesstoken: 6146211cb3c54a5999b78f4df1f88b63"</span> <span class="nt">-X</span> POST <span class="nt">--data</span> <span class="s1">'{"data":[{"tracking_id":"IN19A041905106124","weight":0.047,"has_battery":false,"has_liquid":false,"has_sensitive":false,"time_inbound":"2019-05-09 13:01:07"},{"tracking_id":"BR02A021905100004","weight":0.047,"has_battery":true,"has_liquid":false,"has_sensitive":false,"time_inbound":"2019-05-09 16:12:33"}]}'</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl https://graphql-dev.shoppo.com/api/wise/logistics/stamp <span class="nt">-H</span> <span class="s2">"Content-Type:application/json"</span> <span class="nt">-H</span> <span class="s2">"accesstoken: 6146211cb3c54a5999b78f4df1f88b63"</span> <span class="nt">-X</span> POST <span class="nt">--data</span> <span class="s1">'{"data":[{"trackingId":"IN19A041905106124","weight":0.047,"hasBattery":false,"hasLiquid":false,"hasSensitive":false,"timeInbound":"2019-05-09 13:01:07"},{"trackingId":"BR02A021905100004","weight":0.047,"hasBattery":true,"hasLiquid":false,"hasSensitive":false,"timeInbound":"2019-05-09 16:12:33"}]}'</span>
 </code></pre></div><h3 id='8ce1a08783'>返回参数说明:</h3>
 <table><thead>
 <tr>
@@ -931,14 +941,14 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>code</td>
+<td>errorCode</td>
 <td></td>
 <td>int</td>
 <td>是</td>
 <td>代码</td>
 </tr>
 <tr>
-<td>message</td>
+<td>errorMessage</td>
 <td></td>
 <td>string</td>
 <td>是</td>
@@ -953,10 +963,10 @@
 </tr>
 <tr>
 <td></td>
-<td>tracking_id</td>
+<td>trackingId</td>
 <td>string</td>
 <td>是</td>
-<td>运单号</td>
+<td>原单号</td>
 </tr>
 <tr>
 <td></td>
@@ -964,6 +974,13 @@
 <td>int</td>
 <td>是</td>
 <td>指令</td>
+</tr>
+<tr>
+<td></td>
+<td>combineId</td>
+<td>string</td>
+<td>是</td>
+<td>合并标识</td>
 </tr>
 </tbody></table>
 
@@ -976,14 +993,14 @@
 <p>接收成功</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"errorMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
         </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"tracking_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN19A041905106124"</span><span class="w">
+        </span><span class="s2">"trackingId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN19A041905106124"</span><span class="w">
     </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"tracking_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BR02A021905100004"</span><span class="w">
+        </span><span class="s2">"trackingId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BR02A021905100004"</span><span class="w">
     </span><span class="p">}]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
@@ -991,14 +1008,14 @@
 <p>等待合包</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BR02A021905100004等待合包"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"errorMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BR02A021905100004等待合包"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
         </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"tracking_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN19A041905106124"</span><span class="w">
+        </span><span class="s2">"trackingId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN19A041905106124"</span><span class="w">
     </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"tracking_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BR02A021905100004"</span><span class="w">
+        </span><span class="s2">"trackingId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BR02A021905100004"</span><span class="w">
     </span><span class="p">}]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
@@ -1006,15 +1023,29 @@
 <p>退回商户</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN19A041905106124退回, BR02A021905100004退回"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"errorMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"退回IN19A041905106124, 退回BR02A021905100004"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
         </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"tracking_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN19A041905106124"</span><span class="w">
+        </span><span class="s2">"trackingId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN19A041905106124"</span><span class="w">
     </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"tracking_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BR02A021905100004"</span><span class="w">
+        </span><span class="s2">"trackingId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BR02A021905100004"</span><span class="w">
     </span><span class="p">}]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='b1eec7513b'>异常信息</h3>
+<ul>
+<li><strong>3501</strong> 找不到原单号</li>
+</ul>
+
+<blockquote>
+<p>异常</p>
+
+<p>找不到原单号</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">3501</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"errorMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"找不到BR02A021905100004"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h2 id='66015c1a2e'>指令说明</h2>
 <table><thead>
@@ -1066,7 +1097,7 @@
 </tr>
 <tr>
 <td></td>
-<td>tracking_ids</td>
+<td>trackingIds</td>
 <td>array</td>
 <td>是</td>
 <td>原单号列表</td>
@@ -1080,21 +1111,21 @@
 </tr>
 <tr>
 <td></td>
-<td>has_liquid</td>
+<td>hasLiquid</td>
 <td>boolean</td>
 <td>是</td>
 <td>是否带液体</td>
 </tr>
 <tr>
 <td></td>
-<td>has_battery</td>
+<td>hasBattery</td>
 <td>boolean</td>
 <td>是</td>
 <td>是否带电</td>
 </tr>
 <tr>
 <td></td>
-<td>has_sensitive</td>
+<td>hasSensitive</td>
 <td>boolean</td>
 <td>是</td>
 <td>是否违禁</td>
@@ -1106,11 +1137,11 @@
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"tracking_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"KE11A091905091801"</span><span class="p">,</span><span class="w"> </span><span class="s2">"KE11A091905088704"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"trackingIds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"KE11A091905091801"</span><span class="p">,</span><span class="w"> </span><span class="s2">"KE11A091905088704"</span><span class="p">],</span><span class="w">
         </span><span class="s2">"weight"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.05</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"has_liquid"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"has_battery"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"has_sensitive"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="s2">"hasLiquid"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"hasBattery"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"hasSensitive"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='8ce1a08783-2'>返回参数说明:</h3>
@@ -1153,31 +1184,38 @@
 </tr>
 <tr>
 <td></td>
-<td>logistics_order_code</td>
+<td>logisticsOrderCode</td>
 <td>string</td>
 <td>是</td>
 <td>换单号</td>
 </tr>
 <tr>
 <td></td>
-<td>cancelled_tracking_ids</td>
+<td>cancelledTrackingIds</td>
 <td>string</td>
 <td>否</td>
 <td>取消的原单号列表</td>
 </tr>
 <tr>
 <td></td>
-<td>missing_tracking_ids</td>
+<td>missingTrackingIds</td>
 <td>array</td>
 <td>否</td>
 <td>漏掉的原单号列表</td>
 </tr>
 <tr>
 <td></td>
-<td>stamp_url</td>
+<td>stampUrl</td>
 <td>string</td>
 <td>否</td>
 <td>换单面单链接</td>
+</tr>
+<tr>
+<td></td>
+<td>skuStampUrl</td>
+<td>string</td>
+<td>否</td>
+<td>Sku面单链接</td>
 </tr>
 </tbody></table>
 
@@ -1185,12 +1223,13 @@
 <p>换单成功</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"换单"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"errorMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"换单"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"stamp_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cdn.shoppo.com/temporary_uploaded_files/948d3fb59a0c4cbaa88b6e12b3c97a91.pdf"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"logistics_order_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KE0480397"</span><span class="w">
+        </span><span class="s2">"stampUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cdn.shoppo.com/temporary_uploaded_files/948d3fb59a0c4cbaa88b6e12b3c97a91.pdf"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"skuStampUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cdn.shoppo.com/temporary_uploaded_files/948d3fb59a0c4cbaa88b6e12b3c97a91.pdf"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"logisticsOrderCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KE0480397"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
@@ -1198,12 +1237,12 @@
 <p>部分发货</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KE11A091905088704退货"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"errorMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KE11A091905088704退货"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"cancelled_tracking_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"KE11A091905088704"</span><span class="p">],</span><span class="w">
-        </span><span class="s2">"stamp_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cdn.shoppo.com/temporary_uploaded_files/948d3fb59a0c4cbaa88b6e12b3c97a91.pdf"</span><span class="w">
+        </span><span class="s2">"cancelledTrackingIds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"KE11A091905088704"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"stampUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cdn.shoppo.com/temporary_uploaded_files/948d3fb59a0c4cbaa88b6e12b3c97a91.pdf"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
@@ -1211,14 +1250,74 @@
 <p>退回商户</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KE11A091905091801退货, KE11A091905088704退货"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"errorMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KE11A091905091801退货, KE11A091905088704退货"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"cancelled_tracking_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"KE11A091905091801"</span><span class="p">,</span><span class="w"> </span><span class="s2">"KE11A091905088704"</span><span class="p">]</span><span class="w">
+        </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='b1eec7513b-2'>异常信息</h3>
+<ul>
+<li><strong>3501</strong> 找不到原单号</li>
+<li><strong>3502</strong> 小件已退货</li>
+<li><strong>3053</strong> 小件合并错误</li>
+<li><strong>3054</strong> 小件遗漏</li>
+</ul>
+
+<blockquote>
+<p>异常</p>
+
+<p>小件已退货</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">3502</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"errorMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BR02A021905100004已退货"</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre></div>
+<blockquote>
+<p>异常</p>
+
+<p>小件合并错误</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">3503</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"errorMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BR02A021905100004不应合并"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>异常</p>
+
+<p>小件遗漏</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">35034</span><span class="w">
+    </span><span class="s2">"errorMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BR02A021905100004缺失"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h2 id='ec3716a611'>错误码说明</h2>
+<table><thead>
+<tr>
+<th>代码</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>3501</td>
+<td>找不到原单号</td>
+</tr>
+<tr>
+<td>3502</td>
+<td>小件已退货</td>
+</tr>
+<tr>
+<td>3053</td>
+<td>小件合并错误</td>
+</tr>
+<tr>
+<td>3054</td>
+<td>小件遗漏</td>
+</tr>
+</tbody></table>
+
       </div>
       <div class="dark-box">
       </div>
