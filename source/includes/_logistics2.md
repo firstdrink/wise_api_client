@@ -140,7 +140,7 @@ data |  | array    | 是 | 数组
 ```json
 {
 	"errorCode": 3501,
-	"errorMessage": "找不到BR02A021905100004"
+	"errorMessage": "找不到包裹: BR02A021905100004"
 }
 ```
 
@@ -203,8 +203,6 @@ message | | string | 是 | 消息
 data | | object | 是 | 字典
      | action               | int    | 是 | 指令             |
      | logisticsOrderCode   | string | 是 | 换单号           |
-     | cancelledTrackingIds | string | 否 | 取消的原单号列表 |
-     | missingTrackingIds   | array  | 否 | 漏掉的原单号列表 |
      | stampUrl             | string | 否 | 换单面单链接     |
      | skuStampUrl          | string | 否  | Sku面单链接          |
 
@@ -224,36 +222,10 @@ data | | object | 是 | 字典
 }
 ```
 
-> 部分发货
-
-```json
-{
-	"errorCode": 0,
-	"errorMessage": "KE11A091905088704退货",
-	"data": {
-		"action": 3,
-		"cancelledTrackingIds": ["KE11A091905088704"],
-		"stampUrl": "https://cdn.shoppo.com/temporary_uploaded_files/948d3fb59a0c4cbaa88b6e12b3c97a91.pdf"
-	}
-}
-```
-
-> 退回商户
-
-```json
-{
-	"errorCode": 0,
-	"errorMessage": "KE11A091905091801退货, KE11A091905088704退货",
-	"data": {
-		"action": 4
-	}
-}
-```
-
 
 ### 异常信息
 
-- **3501** 找不到原单号
+- **3501** 找不到包裹
 - **3502** 小件已退货
 - **3053** 小件合并错误
 - **3054** 小件遗漏
@@ -272,15 +244,28 @@ data | | object | 是 | 字典
 
 > 异常
 
-> 小件合并错误
+> 小件合并错误, 传了其他订单的小件单号
 
 
 ```json
 {
 	"errorCode": 3503,
-	"errorMessage": "BR02A021905100004不应合并"
+	"errorMessage": "以下包裹不能一起合并: BR02A021905100004"
 }
 ```
+
+
+> 异常
+
+> 小件合并错误, 该渠道的包裹不需要合并, 传了多个小件单号
+
+```json
+{
+	"errorCode": 3503,
+	"errorMessage": "MALL91渠道不需要合并"
+}
+```
+
 
 > 异常
 
@@ -288,7 +273,7 @@ data | | object | 是 | 字典
 
 ```json
 {
-	"errorCode": 35034
+	"errorCode": 3504
     "errorMessage": "BR02A021905100004缺失"
 }
 ```
@@ -301,7 +286,3 @@ data | | object | 是 | 字典
 3502 | 小件已退货
 3053 | 小件合并错误
 3054 | 小件遗漏
-
-
-
-
