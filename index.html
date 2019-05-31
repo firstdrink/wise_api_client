@@ -1045,7 +1045,7 @@
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">3501</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"errorMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"找不到BR02A021905100004"</span><span class="w">
+    </span><span class="s2">"errorMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"找不到包裹: BR02A021905100004"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h2 id='66015c1a2e'>指令说明</h2>
 <table><thead>
@@ -1191,20 +1191,6 @@
 </tr>
 <tr>
 <td></td>
-<td>cancelledTrackingIds</td>
-<td>string</td>
-<td>否</td>
-<td>取消的原单号列表</td>
-</tr>
-<tr>
-<td></td>
-<td>missingTrackingIds</td>
-<td>array</td>
-<td>否</td>
-<td>漏掉的原单号列表</td>
-</tr>
-<tr>
-<td></td>
 <td>stampUrl</td>
 <td>string</td>
 <td>否</td>
@@ -1232,33 +1218,9 @@
         </span><span class="s2">"logisticsOrderCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KE0480397"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<blockquote>
-<p>部分发货</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"errorMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KE11A091905088704退货"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"cancelledTrackingIds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"KE11A091905088704"</span><span class="p">],</span><span class="w">
-        </span><span class="s2">"stampUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cdn.shoppo.com/temporary_uploaded_files/948d3fb59a0c4cbaa88b6e12b3c97a91.pdf"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<blockquote>
-<p>退回商户</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"errorMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KE11A091905091801退货, KE11A091905088704退货"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='b1eec7513b-2'>异常信息</h3>
 <ul>
-<li><strong>3501</strong> 找不到原单号</li>
+<li><strong>3501</strong> 找不到包裹</li>
 <li><strong>3502</strong> 小件已退货</li>
 <li><strong>3053</strong> 小件合并错误</li>
 <li><strong>3054</strong> 小件遗漏</li>
@@ -1277,11 +1239,21 @@
 <blockquote>
 <p>异常</p>
 
-<p>小件合并错误</p>
+<p>小件合并错误, 传了其他订单的小件单号</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">3503</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"errorMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BR02A021905100004不应合并"</span><span class="w">
+    </span><span class="s2">"errorMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"以下包裹不能一起合并: BR02A021905100004"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>异常</p>
+
+<p>小件合并错误, 该渠道的包裹不需要合并, 传了多个小件单号</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">3503</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"errorMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MALL91渠道不需要合并"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <blockquote>
@@ -1290,7 +1262,7 @@
 <p>小件遗漏</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">35034</span><span class="w">
+    </span><span class="s2">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">3504</span><span class="w">
     </span><span class="s2">"errorMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BR02A021905100004缺失"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h2 id='ec3716a611'>错误码说明</h2>
