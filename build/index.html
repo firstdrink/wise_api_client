@@ -254,9 +254,6 @@
                     <a href="#f7ea7141a9" class="toc-h2 toc-link" data-title="小包入库">小包入库</a>
                   </li>
                   <li>
-                    <a href="#66015c1a2e" class="toc-h2 toc-link" data-title="指令说明">指令说明</a>
-                  </li>
-                  <li>
                     <a href="#77694154d3" class="toc-h2 toc-link" data-title="合单出库">合单出库</a>
                   </li>
                   <li>
@@ -941,20 +938,6 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>errorCode</td>
-<td></td>
-<td>int</td>
-<td>是</td>
-<td>代码</td>
-</tr>
-<tr>
-<td>errorMessage</td>
-<td></td>
-<td>string</td>
-<td>是</td>
-<td>消息</td>
-</tr>
-<tr>
 <td>data</td>
 <td></td>
 <td>array</td>
@@ -982,54 +965,29 @@
 <td>是</td>
 <td>合并标识</td>
 </tr>
+<tr>
+<td></td>
+<td>errorCode</td>
+<td>int</td>
+<td>否</td>
+<td>错误代码</td>
+</tr>
+<tr>
+<td></td>
+<td>errorMessage</td>
+<td>string</td>
+<td>否</td>
+<td>错误信息</td>
+</tr>
 </tbody></table>
 
 <blockquote>
-<p>目前就返回三种指令
-- 接收成功
-- 等待合包
-- 退回商户</p>
-
 <p>接收成功</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"errorMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
-        </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
         </span><span class="s2">"trackingId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN19A041905106124"</span><span class="w">
     </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"trackingId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BR02A021905100004"</span><span class="w">
-    </span><span class="p">}]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<blockquote>
-<p>等待合包</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"errorMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BR02A021905100004等待合包"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
-        </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"trackingId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN19A041905106124"</span><span class="w">
-    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"trackingId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BR02A021905100004"</span><span class="w">
-    </span><span class="p">}]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<blockquote>
-<p>退回商户</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"errorMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"退回IN19A041905106124, 退回BR02A021905100004"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
-        </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"trackingId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN19A041905106124"</span><span class="w">
-    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
         </span><span class="s2">"trackingId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BR02A021905100004"</span><span class="w">
     </span><span class="p">}]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1044,34 +1002,15 @@
 <p>找不到原单号</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">3501</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"errorMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"找不到包裹: BR02A021905100004"</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="s2">"trackingId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN19A041905106124"</span><span class="w">
+    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"trackingId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BR02A021905100004"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">3501</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"errorMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"找不到包裹: BR02A021905100004"</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h2 id='66015c1a2e'>指令说明</h2>
-<table><thead>
-<tr>
-<th>代码</th>
-<th>描述</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>1</td>
-<td>接收成功/换单成功</td>
-</tr>
-<tr>
-<td>2</td>
-<td>等待合包</td>
-</tr>
-<tr>
-<td>3</td>
-<td>部分发货</td>
-</tr>
-<tr>
-<td>4</td>
-<td>退回商户</td>
-</tr>
-</tbody></table>
-<h2 id='77694154d3'>合单出库</h2>
+</span></code></pre></div><h2 id='77694154d3'>合单出库</h2>
 <p><img src="images/wise3.2.png" alt="Wise3.2" /></p>
 <h3 id='api-wise-logistics-outbound'><code>/api/wise/logistics/outbound</code></h3>
 <ul>

@@ -63,70 +63,26 @@ curl https://graphql-dev.shoppo.com/api/wise/logistics/stamp -H "Content-Type:ap
 
 名称  |  二级名称  |   类型    | 必填   | 描述
 ---  |   ---  | --- | --- | ---
-errorCode |  |  int  | 是 | 代码
-errorMessage |  |  string  | 是 | 消息
 data |  | array    | 是 | 数组
-     | trackingId | string | 是 | 原单号 |
-     | action     | int    | 是 | 指令   |
-     | combineId  | string | 是  | 合并标识    |
+     | trackingId | string | 是 | 原单号   |
+     | action     | int    | 是 | 指令     |
+     | combineId  | string | 是 | 合并标识 |
+     | errorCode  | int    | 否 | 错误代码 |
+     | errorMessage | string | 否  |  错误信息    |
 
-
-> 目前就返回三种指令
-> - 接收成功
-> - 等待合包
-> - 退回商户
 
 
 > 接收成功
 
 ```json
 {
-	"errorCode": 0,
-	"errorMessage": "",
 	"data": [{
-		"action": 1,
 		"trackingId": "IN19A041905106124"
 	}, {
-		"action": 1,
 		"trackingId": "BR02A021905100004"
 	}]
 }
 ```
-
-
-> 等待合包
-
-```json
-{
-	"errorCode": 0,
-	"errorMessage": "BR02A021905100004等待合包",
-	"data": [{
-		"action": 1,
-		"trackingId": "IN19A041905106124"
-	}, {
-		"action": 2,
-		"trackingId": "BR02A021905100004"
-	}]
-}
-```
-
-
-> 退回商户
-
-```json
-{
-	"errorCode": 0,
-	"errorMessage": "退回IN19A041905106124, 退回BR02A021905100004",
-	"data": [{
-		"action": 4,
-		"trackingId": "IN19A041905106124"
-	}, {
-		"action": 4,
-		"trackingId": "BR02A021905100004"
-	}]
-}
-```
-
 
 ### 异常信息
 
@@ -139,21 +95,16 @@ data |  | array    | 是 | 数组
 
 ```json
 {
-	"errorCode": 3501,
-	"errorMessage": "找不到包裹: BR02A021905100004"
+	"data": [{
+		"trackingId": "IN19A041905106124"
+	}, {
+		"trackingId": "BR02A021905100004",
+		"errorCode": 3501,
+		"errorMessage": "找不到包裹: BR02A021905100004"
+	}]
 }
 ```
 
-
-
-## 指令说明
-
-代码 | 描述
---- | ---
-1   | 接收成功/换单成功
-2   | 等待合包
-3   | 部分发货
-4   | 退回商户
 
 
 
