@@ -6,48 +6,44 @@
 
 ![](./images/wise2.1.png)
 
-
 ###  `/api/wise/logistics/inbound`
 
 - 传小包原单号数组、重量、安检信息
 - 请求方式: `POST`
 
-
 ### json请求参数说明
 
 名称 | 二级名称 | 类型 | 必填 | 描述
 --- | ---- | --- | --- | ----
-data |     | array | 是 | 数组
-     | trackingId   | string  | 是 | 原单号    |
-     | weight          | float   | 是 | 重量       |
-     | hasBattery      | boolean | 是 | 是否带电   |
-     | hasLiquid       | boolean | 是 | 是否带液体 |
-     | hasSensitive    | boolean | 是 | 是否违禁   |
-     | timeInbound     | string  | 是 | 入库时间   |
-
+pickup_info | | object | 是 |
+            | has_liquid                | boolean | 是     | 是否液体 |
+            | has_battery               | boolean | 是     | 是否带电 |
+            | has_sensitive             | boolean | 是     | 是否违禁 |
+            | weight                    | float   | 是     | 重量     |
+            | pickup_time               | string  | 是     | 入库时间 |
+            | logistics_tracking_number | string | 是 | 小件单号 |
+carrier_code | | string | 是 | 渠道号 |
 
 
 > 参数范例
 
 ```json
 {
-	"data": [{
-			"trackingId": "IN19A041905106124",
-			"weight": 0.047,
-			"hasBattery": false,
-			"hasLiquid": false,
-			"hasSensitive": false,
-			"timeInbound": "2019-05-09 13:01:07"
-		},
-		{
-			"trackingId": "BR02A021905100004",
-			"weight": 0.047,
-			"hasBattery": true,
-			"hasLiquid": false,
-			"hasSensitive": false,
-			"timeInbound": "2019-05-09 16:12:33"
-		}
-	]                                           
+	"api_key": "e624ec5f5d8bcc5303dab6ed54c655e5",
+	"pickup_info": {
+		"has_liquid": false,
+		"has_battery": true,
+		"has_sensitive": false,
+		"weight": 0,
+		"pickup_time": "2019-07-11T19:07:01+00:00",
+		"message": "Arrived at the EPC wharehouse",
+		"recipient_name": "",
+		"pickup_status": "ARRIVE_EPC_WH",
+		"logistics_tracking_number": "VO0000013371VA",
+		"status": 0
+	},
+	"carrier_code": 4,
+	"timestamp": "2019-07-11T19:14:22+00:00"
 }
 ```
 
@@ -55,7 +51,7 @@ data |     | array | 是 | 数组
 > curl请求
 
 ```shell
-curl https://graphql-dev.shoppo.com/api/wise/logistics/stamp -H "Content-Type:application/json" -H "accesstoken: 6146211cb3c54a5999b78f4df1f88b63" -X POST --data '{"data":[{"trackingId":"IN19A041905106124","weight":0.047,"hasBattery":false,"hasLiquid":false,"hasSensitive":false,"timeInbound":"2019-05-09 13:01:07"},{"trackingId":"BR02A021905100004","weight":0.047,"hasBattery":true,"hasLiquid":false,"hasSensitive":false,"timeInbound":"2019-05-09 16:12:33"}]}'
+curl https://graphql-dev.shoppo.com/api/wise/logistics/stamp -H "Content-Type:application/json" -H "accesstoken: 6146211cb3c54a5999b78f4df1f88b63" -X POST --data '{"api_key":"e624ec5f5d8bcc5303dab6ed54c655e5","pickup_info":{"has_liquid":false,"has_battery":true,"has_sensitive":false,"weight":0,"pickup_time":"2019-07-11T19:07:01+00:00","message":"Arrived at the EPC wharehouse","recipient_name":"","pickup_status":"ARRIVE_EPC_WH","logistics_tracking_number":"VO0000013371VA","status":0},"carrier_code":4,"timestamp":"2019-07-11T19:14:22+00:00"}'
 ```
 
 
@@ -63,12 +59,10 @@ curl https://graphql-dev.shoppo.com/api/wise/logistics/stamp -H "Content-Type:ap
 
 名称  |  二级名称  |   类型    | 必填   | 描述
 ---  |   ---  | --- | --- | ---
-data |  | array    | 是 | 数组
-     | trackingId | string | 是 | 原单号   |
-     | action     | int    | 是 | 指令     |
-     | combineId  | string | 是 | 合并标识 |
-     | errorCode  | int    | 否 | 错误代码 |
-     | errorMessage | string | 否  |  错误信息    |
+code |        | int | 是 | 错误编码
+message |     | string | 是 | 消息
+data |  | object    | 是 | 数组
+     | tracking_id | string | 是 | 原单号   |
 
 
 
@@ -76,11 +70,11 @@ data |  | array    | 是 | 数组
 
 ```json
 {
-	"data": [{
-		"trackingId": "IN19A041905106124"
-	}, {
-		"trackingId": "BR02A021905100004"
-	}]
+	"data": {
+		"tracking_id": "VO0000013371VA"
+	},
+	"code": 0,
+	"message": ""
 }
 ```
 
@@ -95,16 +89,13 @@ data |  | array    | 是 | 数组
 
 ```json
 {
-	"data": [{
-		"trackingId": "IN19A041905106124"
-	}, {
-		"trackingId": "BR02A021905100004",
-		"errorCode": 3501,
-		"errorMessage": "找不到包裹: BR02A021905100004"
-	}]
+	"data": {
+		"tracking_id": "VO0000013371VA"
+	},
+	"code": 3501,
+	"message": "找不到包裹: VO0000013371VA"
 }
 ```
-
 
 
 
@@ -124,11 +115,11 @@ data |  | array    | 是 | 数组
 名称 | 二级名称 | 类型 | 必填 | 描述
 --- | --- | --- | --- | ---
 data | | object | 是 | 字典
-     | trackingIds   | array   | 是 | 原单号列表 |
+     | tracking_ids  | array   | 是 | 原单号列表 |
      | weight        | float   | 是 | 总重       |
-     | hasLiquid     | boolean | 是 | 是否带液体 |
-     | hasBattery    | boolean | 是 | 是否带电   |
-     | hasSensitive  | boolean | 是 | 是否违禁   |
+     | has_liquid    | boolean | 是 | 是否带液体 |
+     | has_battery   | boolean | 是 | 是否带电   |
+     | has_sensitive | boolean | 是 | 是否违禁   |
 
 
 > 参数范例
@@ -136,11 +127,11 @@ data | | object | 是 | 字典
 ```json
 {
 	"data": {
-		"trackingIds": ["KE11A091905091801", "KE11A091905088704"],
+		"tracking_ids": ["KE11A091905091801", "KE11A091905088704"],
 		"weight": 0.05,
-		"hasLiquid": false,
-		"hasBattery": false,
-		"hasSensitive": false
+		"has_liquid": false,
+		"has_battery": false,
+		"has_sensitive": false
 	}
 }
 ```
@@ -152,23 +143,21 @@ data | | object | 是 | 字典
 code | | int | 是 | 代码
 message | | string | 是 | 消息
 data | | object | 是 | 字典
-     | action               | int    | 是 | 指令             |
-     | logisticsOrderCode   | string | 是 | 换单号           |
-     | stampUrl             | string | 否 | 换单面单链接     |
-     | skuStampUrl          | string | 否  | Sku面单链接          |
+     | logistics_order_code | string | 是 | 换单号           |
+     | stamp_url            | string | 否 | 换单面单链接     |
+     | sku_stamp_url        | string | 否  | Sku面单链接          |
 
 
 > 换单成功
 
 ```json
 {
-	"errorCode": 0,
-	"errorMessage": "换单",
+	"code": 0,
+	"message": "换单成功",
 	"data": {
-		"action": 1,
-		"stampUrl": "https://cdn.shoppo.com/temporary_uploaded_files/948d3fb59a0c4cbaa88b6e12b3c97a91.pdf",
-        "skuStampUrl": "https://cdn.shoppo.com/temporary_uploaded_files/948d3fb59a0c4cbaa88b6e12b3c97a91.pdf",
-		"logisticsOrderCode": "KE0480397"
+		"stamp_url": "https://cdn.shoppo.com/temporary_uploaded_files/948d3fb59a0c4cbaa88b6e12b3c97a91.pdf",
+        "sku_stamp_url": "https://cdn.shoppo.com/temporary_uploaded_files/948d3fb59a0c4cbaa88b6e12b3c97a91.pdf",
+		"logistics_order_code": "KE0480397"
 	}
 }
 ```
@@ -187,8 +176,8 @@ data | | object | 是 | 字典
 
 ```json
 {
-	"errorCode": 3502,
-	"errorMessage": "BR02A021905100004已退货"
+	"code": 3502,
+	"message": "BR02A021905100004已退货"
 }
 ```
 
@@ -200,8 +189,8 @@ data | | object | 是 | 字典
 
 ```json
 {
-	"errorCode": 3503,
-	"errorMessage": "以下包裹不能一起合并: BR02A021905100004"
+	"code": 3503,
+	"message": "以下包裹不能一起合并: BR02A021905100004"
 }
 ```
 
@@ -212,8 +201,8 @@ data | | object | 是 | 字典
 
 ```json
 {
-	"errorCode": 3503,
-	"errorMessage": "MALL91渠道不需要合并"
+	"code": 3503,
+	"message": "MALL91渠道不需要合并"
 }
 ```
 
@@ -224,8 +213,8 @@ data | | object | 是 | 字典
 
 ```json
 {
-	"errorCode": 3504
-    "errorMessage": "BR02A021905100004缺失"
+	"code": 3504
+    "message": "BR02A021905100004缺失"
 }
 ```
 
