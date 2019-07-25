@@ -112,27 +112,24 @@ data |  | object    | 是 | 数组
 ### json请求参数说明
 
 
-名称 | 二级名称 | 类型 | 必填 | 描述
---- | --- | --- | --- | ---
-data | | object | 是 | 字典
-     | tracking_ids  | array   | 是 | 原单号列表 |
-     | weight        | float   | 是 | 总重       |
-     | has_liquid    | boolean | 是 | 是否带液体 |
-     | has_battery   | boolean | 是 | 是否带电   |
-     | has_sensitive | boolean | 是 | 是否违禁   |
+名称 | 类型 | 必填 | 描述
+--- | --- | --- | ---
+tracking_ids    | array   | 是 | 原单号列表 |
+weight          | float   | 是 | 总重       |
+has_liquid      | boolean | 是 | 是否带液体 |
+has_battery     | boolean | 是 | 是否带电   |
+has_sensitive   | boolean | 是 | 是否违禁   |
 
 
 > 参数范例
 
 ```json
 {
-	"data": {
-		"tracking_ids": ["KE11A091905091801", "KE11A091905088704"],
-		"weight": 0.05,
-		"has_liquid": false,
-		"has_battery": false,
-		"has_sensitive": false
-	}
+	"tracking_ids": ["KE11A091905091801", "KE11A091905088704"],
+	"weight": 0.05,
+	"has_liquid": false,
+	"has_battery": false,
+	"has_sensitive": false
 }
 ```
 
