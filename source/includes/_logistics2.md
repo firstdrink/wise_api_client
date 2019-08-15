@@ -119,6 +119,7 @@ weight          | float   | 是 | 总重       |
 has_liquid      | boolean | 是 | 是否带液体 |
 has_battery     | boolean | 是 | 是否带电   |
 has_sensitive   | boolean | 是 | 是否违禁   |
+oversize        | boolean | 是 | 是否超尺寸 |
 
 
 > 参数范例
@@ -129,7 +130,8 @@ has_sensitive   | boolean | 是 | 是否违禁   |
 	"weight": 0.05,
 	"has_liquid": false,
 	"has_battery": false,
-	"has_sensitive": false
+	"has_sensitive": false,
+    "oversize": false
 }
 ```
 
