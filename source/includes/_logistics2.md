@@ -217,6 +217,68 @@ data | | object | 是 | 字典
 }
 ```
 
+
+## 获取下单数据
+
+### `/api/wise/logistics/combine_order`
+
+- 根据原单号获取下单数据
+- 请求方式: `POST`
+
+### json请求参数说明
+
+名称 | 类型 | 必填 | 描述
+--- | --- | --- | ---
+tracking_id    | string   | 是 | 原单号 |
+
+> 参数范例
+
+```json
+{
+	"tracking_number": "BR02A021908019964"
+}
+```
+
+> curl请求
+
+```shell
+curl http://api-dev.shoppo.com:14041/api/wise/logistics/combine_order -H "Content-Type:application/json" -H "accesstoken: 6146211cb3c54a5999b78f4df1f88b63" -X POST --data '{"tracking_number":"BR02A021908019964"}'
+```
+
+### 返回参数
+
+> 调用成功
+
+```json
+{
+	"code": 0,
+	"data": {
+		"merchant_transaction_id": "",
+		"tracking_id": "BR02A021908019964",
+		"combine_id": "190828145",
+		"ready_to_ship": false,
+		"goods_type": "1",
+		"status": 1,
+		"destination_country": "BR",
+		"warehouse_code": "WSSZ001",
+		"product": "5cac483bd09f6914c43cd5a9",
+		"first_mile_carrier": "9903"
+	},
+	"message": ""
+}
+```
+
+
+> 找不到包裹
+
+```json
+{
+	"code": 3501,
+	"message": "找不到包裹: BR02A0219082833828"
+}
+```
+
+
 ## 错误码说明
 
 代码  | 描述
