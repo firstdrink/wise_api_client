@@ -235,14 +235,14 @@ tracking_id    | string   | 是 | 原单号 |
 
 ```json
 {
-	"tracking_number": "BR02A021908019964"
+	"tracking_id": "BR02A021908019964"
 }
 ```
 
 > curl请求
 
 ```shell
-curl http://api-dev.shoppo.com:14041/api/wise/logistics/combine_order -H "Content-Type:application/json" -H "accesstoken: 6146211cb3c54a5999b78f4df1f88b63" -X POST --data '{"tracking_number":"BR02A021908019964"}'
+curl http://api-dev.shoppo.com:14041/api/wise/logistics/combine_order -H "Content-Type:application/json" -H "accesstoken: 6146211cb3c54a5999b78f4df1f88b63" -X POST --data '{"tracking_id":"BR02A021908019964"}'
 ```
 
 ### 返回参数
