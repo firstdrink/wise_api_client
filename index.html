@@ -1206,13 +1206,13 @@
 <p>参数范例</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"tracking_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BR02A021908019964"</span><span class="w">
+    </span><span class="s2">"tracking_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BR02A021908019964"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <blockquote>
 <p>curl请求</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl http://api-dev.shoppo.com:14041/api/wise/logistics/combine_order <span class="nt">-H</span> <span class="s2">"Content-Type:application/json"</span> <span class="nt">-H</span> <span class="s2">"accesstoken: 6146211cb3c54a5999b78f4df1f88b63"</span> <span class="nt">-X</span> POST <span class="nt">--data</span> <span class="s1">'{"tracking_number":"BR02A021908019964"}'</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl http://api-dev.shoppo.com:14041/api/wise/logistics/combine_order <span class="nt">-H</span> <span class="s2">"Content-Type:application/json"</span> <span class="nt">-H</span> <span class="s2">"accesstoken: 6146211cb3c54a5999b78f4df1f88b63"</span> <span class="nt">-X</span> POST <span class="nt">--data</span> <span class="s1">'{"tracking_id":"BR02A021908019964"}'</span>
 </code></pre></div><h3 id='70bdef7e25'>返回参数</h3>
 <blockquote>
 <p>调用成功</p>
