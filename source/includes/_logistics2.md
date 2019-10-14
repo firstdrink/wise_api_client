@@ -16,12 +16,13 @@
 名称 | 二级名称 | 类型 | 必填 | 描述
 --- | ---- | --- | --- | ----
 pickup_info | | object | 是 |
-            | has_liquid                | boolean | 是     | 是否液体 |
-            | has_battery               | boolean | 是     | 是否带电 |
-            | has_sensitive             | boolean | 是     | 是否违禁 |
-            | weight                    | float   | 是     | 重量     |
-            | pickup_time               | string  | 是     | 入库时间 |
-            | logistics_tracking_number | string | 是 | 小件单号 |
+            | has_liquid                | boolean | 是 | 是否液体 |
+            | has_battery               | boolean | 是 | 是否带电 |
+            | has_sensitive             | boolean | 是 | 是否违禁 |
+            | weight                    | float   | 是 | 重量     |
+            | pickup_time               | string  | 是 | 入库时间 |
+            | logistics_tracking_number | string  | 是 | 小件单号 |
+            | oversize                  | boolean | 否  | 是否超尺寸    |
 carrier_code | | string | 是 | 渠道号 |
 
 
@@ -40,7 +41,8 @@ carrier_code | | string | 是 | 渠道号 |
 		"recipient_name": "",
 		"pickup_status": "ARRIVE_EPC_WH",
 		"logistics_tracking_number": "VO0000013371VA",
-		"status": 0
+		"status": 0,
+        "oversize": false
 	},
 	"carrier_code": 4,
 	"timestamp": "2019-07-11T19:14:22+00:00"
@@ -142,9 +144,10 @@ oversize        | boolean | 是 | 是否超尺寸 |
 code | | int | 是 | 代码
 message | | string | 是 | 消息
 data | | object | 是 | 字典
-     | logistics_order_code | string | 是 | 换单号           |
-     | stamp_url            | string | 否 | 换单面单链接     |
-     | sku_stamp_url        | string | 否  | Sku面单链接          |
+     | logistics_order_code | string | 是 | 换单号       |
+     | stamp_url            | string | 否 | 换单面单链接 |
+     | sku_stamp_url        | string | 否 | Sku面单链接  |
+     | invoice_url          | string | 否   | 发票面单链接       |
 
 
 > 换单成功
@@ -156,6 +159,7 @@ data | | object | 是 | 字典
 	"data": {
 		"stamp_url": "https://cdn.shoppo.com/temporary_uploaded_files/948d3fb59a0c4cbaa88b6e12b3c97a91.pdf",
         "sku_stamp_url": "https://cdn.shoppo.com/temporary_uploaded_files/948d3fb59a0c4cbaa88b6e12b3c97a91.pdf",
+        "invoice_url": "https://cdn.shoppo.com/temporary_uploaded_files/948d3fb59a0c4cbaa88b6e12b3c97a91.pdf",
 		"logistics_order_code": "KE0480397"
 	}
 }
