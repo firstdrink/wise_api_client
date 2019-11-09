@@ -122,6 +122,7 @@ has_liquid      | boolean | 是 | 是否带液体 |
 has_battery     | boolean | 是 | 是否带电   |
 has_sensitive   | boolean | 是 | 是否违禁   |
 oversize        | boolean | 是 | 是否超尺寸 |
+carrier_code    | string  | 是 | 渠道号    |
 
 
 > 参数范例
@@ -133,7 +134,8 @@ oversize        | boolean | 是 | 是否超尺寸 |
 	"has_liquid": false,
 	"has_battery": false,
 	"has_sensitive": false,
-    "oversize": false
+    "oversize": false,
+    "carrier_code": "9903"
 }
 ```
 
