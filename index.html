@@ -276,6 +276,7 @@
 <ul>
 <li>Dev: <a href="https://graphql-dev.shoppo.com/api/wise">https://graphql-dev.shoppo.com/api/wise</a></li>
 <li>Prod : <a href="https://graphql.shoppo.com/api/wise">https://graphql.shoppo.com/api/wise</a></li>
+<li>Gateway(新增API网关): <a href="http://tracking-gateway.shoppo.com">http://tracking-gateway.shoppo.com</a></li>
 <li>调用方式: <code>https</code></li>
 <li>编码格式: <code>utf-8</code></li>
 <li>接口验证: <code>accesstoken</code></li>
@@ -909,6 +910,27 @@
 <td>是否超尺寸</td>
 </tr>
 <tr>
+<td></td>
+<td>length</td>
+<td>float</td>
+<td>否</td>
+<td>长(cm)</td>
+</tr>
+<tr>
+<td></td>
+<td>width</td>
+<td>float</td>
+<td>否</td>
+<td>宽(cm)</td>
+</tr>
+<tr>
+<td></td>
+<td>height</td>
+<td>float</td>
+<td>否</td>
+<td>高(cm)</td>
+</tr>
+<tr>
 <td>carrier_code</td>
 <td></td>
 <td>string</td>
@@ -933,7 +955,10 @@
         </span><span class="s2">"pickup_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ARRIVE_EPC_WH"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"logistics_tracking_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VO0000013371VA"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"oversize"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="s2">"oversize"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"length"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.2</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"carrier_code"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
     </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-11T19:14:22+00:00"</span><span class="w">
