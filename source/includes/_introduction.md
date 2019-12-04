@@ -5,6 +5,7 @@
 
 - Dev: [https://graphql-dev.shoppo.com/api/wise](https://graphql-dev.shoppo.com/api/wise)
 - Prod : [https://graphql.shoppo.com/api/wise](https://graphql.shoppo.com/api/wise)
+- Gateway(新增API网关): [http://tracking-gateway.shoppo.com](http://tracking-gateway.shoppo.com)
 - 调用方式: `https`
 - 编码格式: `utf-8`
 - 接口验证: `accesstoken`

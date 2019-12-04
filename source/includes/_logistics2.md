@@ -16,13 +16,16 @@
 名称 | 二级名称 | 类型 | 必填 | 描述
 --- | ---- | --- | --- | ----
 pickup_info | | object | 是 |
-            | has_liquid                | boolean | 是 | 是否液体 |
-            | has_battery               | boolean | 是 | 是否带电 |
-            | has_sensitive             | boolean | 是 | 是否违禁 |
-            | weight                    | float   | 是 | 重量     |
-            | pickup_time               | string  | 是 | 入库时间 |
-            | logistics_tracking_number | string  | 是 | 小件单号 |
-            | oversize                  | boolean | 否  | 是否超尺寸    |
+            | has_liquid                | boolean | 是 | 是否液体   |
+            | has_battery               | boolean | 是 | 是否带电   |
+            | has_sensitive             | boolean | 是 | 是否违禁   |
+            | weight                    | float   | 是 | 重量       |
+            | pickup_time               | string  | 是 | 入库时间   |
+            | logistics_tracking_number | string  | 是 | 小件单号   |
+            | oversize                  | boolean | 否 | 是否超尺寸 |
+            | length                    | float   | 否 | 长(cm)     |
+            | width                     | float   | 否 | 宽(cm)     |
+            | height                    | float   | 否  | 高(cm)       |
 carrier_code | | string | 是 | 渠道号 |
 
 
@@ -42,7 +45,10 @@ carrier_code | | string | 是 | 渠道号 |
 		"pickup_status": "ARRIVE_EPC_WH",
 		"logistics_tracking_number": "VO0000013371VA",
 		"status": 0,
-        "oversize": false
+		"oversize": false,
+		"length": 1.1,
+		"width": 2.1,
+		"height": 1.2
 	},
 	"carrier_code": 4,
 	"timestamp": "2019-07-11T19:14:22+00:00"
