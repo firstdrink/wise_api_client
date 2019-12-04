@@ -138,7 +138,7 @@ checkpoints | | array | 是 | 轨迹列表
     | location      | string | 是 | 位置                                                                   |
     | weight        | float  | 否  |  重量， 单位Kg                                                              |
     | has_battery   | boolean | 否  | 是否带电                                                                   |
-
+	| tracking_number   | string | 是  | 大包号，最后一个物流节点必填 						|
 
 
 ## 获取物流订单
