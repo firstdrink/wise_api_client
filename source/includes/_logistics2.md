@@ -154,22 +154,26 @@ message | | string | 是 | 消息
 data | | object | 是 | 字典
      | logistics_order_code | string | 是 | 换单号       |
      | stamp_url            | string | 否 | 换单面单链接 |
+     | label_size           | string | 是 | 面单尺寸     |
      | sku_stamp_url        | string | 否 | Sku面单链接  |
-     | invoice_url          | string | 否   | 发票面单链接       |
+     | invoice_url          | string | 否 | 发票面单链接 |
+     | invoice_size         | string | 否  | 发票尺寸         |
 
 
 > 换单成功
 
 ```json
 {
-	"code": 0,
-	"message": "换单成功",
-	"data": {
-		"stamp_url": "https://cdn.shoppo.com/temporary_uploaded_files/948d3fb59a0c4cbaa88b6e12b3c97a91.pdf",
-        "sku_stamp_url": "https://cdn.shoppo.com/temporary_uploaded_files/948d3fb59a0c4cbaa88b6e12b3c97a91.pdf",
-        "invoice_url": "https://cdn.shoppo.com/temporary_uploaded_files/948d3fb59a0c4cbaa88b6e12b3c97a91.pdf",
-		"logistics_order_code": "KE0480397"
-	}
+    "code": 0,
+    "data": {
+        "invoice_url": "http://soda-prod.oss-accelerate.aliyuncs.com/pdf/86a1fb111cdb4f5a9f8f710c2bae2936.pdf",
+        "invoice_size": "10*15",
+        "label_size": "10*15",
+        "logistics_order_code": "shoppotest20191116002",
+        "sku_stamp_url": "",
+        "stamp_url": "http://soda-prod.oss-accelerate.aliyuncs.com/pdf/7bc6d42c10ce487bb2266f35d1aaf421.pdf"
+    },
+    "message": ""
 }
 ```
 
